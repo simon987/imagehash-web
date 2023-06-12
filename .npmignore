@@ -1,0 +1,5 @@
+test_fixtures/
+tests/
+*.iml
+.idea/
+.parcel-cache/
