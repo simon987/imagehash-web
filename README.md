@@ -2,6 +2,10 @@
 
 Javascript implementation of various image hashing algorithms.
 
+```bash
+npm install imagehash-web
+```
+
 The methods used to compute the image hashes
 the same as the `imagehash` python library, however, due to
 some slight differences in the way your browser vs Pillow images are resized,
@@ -29,7 +33,7 @@ console.log(hash.hammingDistance(precomputed));
 ### Example usage (browser)
 ```html
 
-<script src="https://unpkg.com/imagehash-web@1.0.3/dist/imagehash-web.min.js"></script>
+<script src="https://unpkg.com/imagehash-web@1.0.4/dist/imagehash-web.min.js"></script>
 <script>
     const im = document.getElementById("#my-image");
 
