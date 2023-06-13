@@ -1,10 +1,11 @@
 import {ImageHash} from "./hash";
+import {Image} from "canvas";
 
-export function phash(image, size: number, highFrequencyFactor: number): ImageHash;
+export function phash(image: Image|HTMLImageElement, size: number = 8, highFrequencyFactor: number = 4): ImageHash;
 
-export function ahash(image, size: number): ImageHash;
+export function ahash(image: Image|HTMLImageElement, size: number = 8): ImageHash;
 
-export function dhash(image, size: number): ImageHash;
+export function dhash(image: Image|HTMLImageElement, size: number = 8): ImageHash;
 
 export class ImageHash {
     constructor(arr: Uint8ClampedArray);
