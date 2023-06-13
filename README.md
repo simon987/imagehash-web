@@ -1,6 +1,6 @@
 # imagehash-web
 
-![npm](https://img.shields.io/npm/v/imagehash-web)
+[![npm](https://img.shields.io/npm/v/imagehash-web)](https://www.npmjs.com/package/imagehash-web)
 
 Javascript implementation of various image hashing algorithms.
 
