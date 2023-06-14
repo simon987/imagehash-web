@@ -1,6 +1,6 @@
 {
   "name": "imagehash-web",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "homepage": "https://github.com/simon987/imagehash-web",
   "repository": {
     "type": "git",
@@ -33,5 +33,7 @@
     }
   },
   "type": "module",
-  "browserslist": ["> 0.5%, last 2 versions, not dead"]
+  "browserslist": [
+    "> 0.5%, last 2 versions, not dead"
+  ]
 }

@@ -19,6 +19,7 @@ Implemented algorithms:
 * `ahash` Average hash
 * `dhash` Difference hash
 * `phash` Perceptual hash
+* `whash` Wavelet hash
 
 ### Example usage (browser)
 
