@@ -29,10 +29,11 @@ Implemented algorithms:
 <script>
     const im = document.getElementById("my-image");
 
-    const hash = phash(im, 8);
     const precomputed = ImageHash.fromHexString("5dbfb5310a81a361")
-
-    console.log(hash.hammingDistance(precomputed));
+    
+    phash(im, 8).then(hash => {
+        console.log(hash.hammingDistance(precomputed));
+    });
 </script>
 ```
 
@@ -44,7 +45,7 @@ import {phash, ImageHash} from "imagehash-web";
 
 const im = await loadImage("./my_image.jpg");
 
-const hash = phash(im, 8);
+const hash = await phash(im, 8);
 const precomputed = ImageHash.fromHexString("5dbfb5310a81a361")
 
 console.log(hash.hammingDistance(precomputed));

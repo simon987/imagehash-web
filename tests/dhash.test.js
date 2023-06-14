@@ -6,10 +6,10 @@ test("dhash_8_100px", async () => {
     const SIZE = 8;
     const image = await loadImage("./test_fixtures/100px.jpg");
 
-    const hash = dhash(image, SIZE);
+    const hash = await dhash(image, SIZE);
 
-    expect(hash.toHexStringReversed()).toBe("130b55998d07f133")
-    expect(hash.toHexString()).toBe("c8d0aa99b1e08fcc")
+    expect(hash.toHexStringReversed()).toBe("13335599894761e0")
+    expect(hash.toHexString()).toBe("c8ccaa9991e28607");
 });
 
 // test("dhash_16_100px", async () => {

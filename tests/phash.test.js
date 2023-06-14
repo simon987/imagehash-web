@@ -6,7 +6,7 @@ test("phash_8_100px", async () => {
     const SIZE = 8;
     const image = await loadImage("./test_fixtures/100px.jpg");
 
-    const hash = phash(image, SIZE);
+    const hash = await phash(image, SIZE);
 
     expect(hash.toHexStringReversed()).toBe("bafdad8c5081c586")
     expect(hash.toHexString()).toBe("5dbfb5310a81a361")
