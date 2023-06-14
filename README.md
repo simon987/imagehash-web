@@ -25,7 +25,7 @@ Implemented algorithms:
 
 ```html
 
-<script src="https://unpkg.com/imagehash-web@1.0.5/dist/imagehash-web.min.js"></script>
+<script src="https://unpkg.com/imagehash-web/dist/imagehash-web.min.js"></script>
 <script>
     const im = document.getElementById("my-image");
 
