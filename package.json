@@ -1,12 +1,13 @@
 {
   "name": "imagehash-web",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "homepage": "https://github.com/simon987/imagehash-web",
   "repository": {
     "type": "git",
     "url": "https://github.com/simon987/imagehash-web"
   },
-  "bootstrap": "dist/imagehash-web.min.js",
+  "main": "dist/imagehash-web.js",
+  "mainMin": "dist/imagehash-web.min.js",
   "source": "lib/index.js",
   "typings": "lib/index.d.ts",
   "license": "MIT",
@@ -27,13 +28,21 @@
     "pica": "^9.0.1"
   },
   "targets": {
-    "bootstrap": {
+    "mainMin": {
       "engines": {
         "browsers": "> 0.5%, last 2 versions, not dead"
       },
       "includeNodeModules": true,
       "optimize": true,
       "sourceMap": false
+    },
+    "main": {
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      },
+      "includeNodeModules": true,
+      "optimize": false,
+      "sourceMap": true
     }
   },
   "type": "module",
