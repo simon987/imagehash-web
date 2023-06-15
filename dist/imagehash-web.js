@@ -2237,9 +2237,9 @@ $ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
             toCanvas = (0, $60ae514bd74eb968$export$cd3d1f114b139967)(width, height);
             toCanvas.width = width;
             toCanvas.height = height;
-            fromCanvas = (0, $60ae514bd74eb968$export$cd3d1f114b139967)(image.width, image.height);
-            fromCanvas.width = image.width;
-            fromCanvas.height = image.height;
+            fromCanvas = (0, $60ae514bd74eb968$export$cd3d1f114b139967)(image.naturalWidth, image.naturalHeight);
+            fromCanvas.width = image.naturalWidth;
+            fromCanvas.height = image.naturalHeight;
             // Trick pica into thinking that this is a normal HTML cavas
             fromCanvas[Symbol.toStringTag] = "HTMLCanvasElement";
             pica = new (0, (/*@__PURE__*/$parcel$interopDefault($ed498a97b604fad5$exports)))({
@@ -2263,15 +2263,14 @@ $ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
                 concurrency: 1,
                 features: [
                     "js",
-                    "wasm",
-                    "cib"
+                    "wasm"
                 ],
                 idle: 2000,
                 browserCreateCanvas: browserCreateCanvas
             });
             image.setAttribute("crossOrigin", "Anonymous");
             toCanvas = browserCreateCanvas(width, height);
-            fromCanvas = browserCreateCanvas(image.width, image.height);
+            fromCanvas = browserCreateCanvas(image.naturalWidth, image.naturalHeight);
         }
         const fromCtx = fromCanvas.getContext("2d");
         fromCtx.drawImage(image, 0, 0);
@@ -2613,7 +2612,7 @@ function $5d99fb4c94813a28$var$waverec2(data, wavelet, level) {
     return result;
 }
 async function $5d99fb4c94813a28$export$75b483db6f260202(image, size = 8, removeMaxHaarLL = true) {
-    const imageNaturalScale = 2 ** Math.floor(Math.log2(Math.min(image.width, image.height)));
+    const imageNaturalScale = 2 ** Math.floor(Math.log2(Math.min(image.naturalWidth, image.naturalHeight)));
     const imageSize = Math.max(imageNaturalScale, size);
     const llMaxLevel = Math.floor(Math.log2(imageSize));
     const level = Math.floor(Math.log2(size));

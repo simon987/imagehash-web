@@ -3,3 +3,4 @@ tests/
 *.iml
 .idea/
 .parcel-cache/
+*.png
