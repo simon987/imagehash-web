@@ -2258,7 +2258,17 @@ $ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
                 canvas.height = height;
                 return canvas;
             }
-            pica = new (0, (/*@__PURE__*/$parcel$interopDefault($ed498a97b604fad5$exports)))();
+            pica = new (0, (/*@__PURE__*/$parcel$interopDefault($ed498a97b604fad5$exports)))({
+                tile: 1024,
+                concurrency: 1,
+                features: [
+                    "js",
+                    "wasm",
+                    "cib"
+                ],
+                idle: 2000,
+                browserCreateCanvas: browserCreateCanvas
+            });
             image.setAttribute("crossOrigin", "Anonymous");
             toCanvas = browserCreateCanvas(width, height);
             fromCanvas = browserCreateCanvas(image.width, image.height);
