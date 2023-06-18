@@ -1,5 +1,10 @@
+import {createWriteStream as $4eXMr$createWriteStream} from "fs";
+
 function $parcel$interopDefault(a) {
   return a && a.__esModule ? a.default : a;
+}
+function $parcel$export(e, n, v, s) {
+  Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
 var $parcel$global =
 typeof globalThis !== 'undefined'
@@ -1221,6 +1226,9 @@ parcelRequire.register("6ANEd", function(module, exports) {
 
 
 var $6c221ac32ca8caf2$exports = {};
+var $60ae514bd74eb968$exports = {};
+
+$parcel$export($60ae514bd74eb968$exports, "createCanvas", function () { return $60ae514bd74eb968$export$cd3d1f114b139967; }, function (v) { return $60ae514bd74eb968$export$cd3d1f114b139967 = v; });
 /* globals document, ImageData */ var $60ae514bd74eb968$export$807478983c0c2e;
 var $60ae514bd74eb968$export$cd3d1f114b139967;
 var $60ae514bd74eb968$export$ad40c38a6f41c9cf;
@@ -2292,6 +2300,7 @@ $ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
         if (sx !== undefined) {
             const sCtx = image.getContext("2d");
             const imageData = sCtx.getImageData(sx, sy, sw, sh);
+            canvas[Symbol.toStringTag] = "HTMLCanvasElement";
             ctx.putImageData(imageData, 0, 0);
         } else ctx.drawImage(image, 0, 0);
         return canvas;
@@ -2830,30 +2839,26 @@ function $9d9ba2e8c9d3f75c$export$3763232abdebfe34(pixels, width, height, radius
 
 
 
-// function debugSaveImage(pixels, filename, width, height) {
-//
-//     const rgba = new Uint8ClampedArray(width * height * 4);
-//
-//     let cur = 0;
-//     for (let y = 0; y < height; y++) {
-//         for (let x = 0; x < width; x++) {
-//             const val = pixels[y * height + x]
-//             rgba[cur++] = val;
-//             rgba[cur++] = val;
-//             rgba[cur++] = val;
-//             rgba[cur++] = 255;
-//         }
-//     }
-//
-//     const canvas = createCanvas(width, height);
-//     const ctx = canvas.getContext("2d");
-//     const imgData = new ImageData(rgba, width, height);
-//     ctx.putImageData(imgData, 0, 0);
-//
-//     const out = fs.createWriteStream(filename)
-//     const stream = canvas.createPNGStream()
-//     stream.pipe(out)
-// }
+
+
+function $1e7ab61aa659f59a$var$debugSaveImage(pixels, filename, width, height) {
+    const rgba = new Uint8ClampedArray(width * height * 4);
+    let cur = 0;
+    for(let y = 0; y < height; y++)for(let x = 0; x < width; x++){
+        const val = pixels[y * height + x];
+        rgba[cur++] = val;
+        rgba[cur++] = val;
+        rgba[cur++] = val;
+        rgba[cur++] = 255;
+    }
+    const canvas = (0, $60ae514bd74eb968$export$cd3d1f114b139967)(width, height);
+    const ctx = canvas.getContext("2d");
+    const imgData = new (0, $60ae514bd74eb968$exports.ImageData)(rgba, width, height);
+    ctx.putImageData(imgData, 0, 0);
+    const out = $4eXMr$createWriteStream(filename);
+    const stream = canvas.createPNGStream();
+    stream.pipe(out);
+}
 function $1e7ab61aa659f59a$var$findRegion(thresholdPixels, alreadySegmented, size, hill) {
     const region = [];
     const newPixels = [];
@@ -2864,27 +2869,28 @@ function $1e7ab61aa659f59a$var$findRegion(thresholdPixels, alreadySegmented, siz
         alreadySegmented[i] = 1;
         break;
     }
+    let top, bottom, left, right, newPixel;
     while(newPixels.length > 0){
-        const newPixel = newPixels.pop();
-        const top = newPixel - size;
+        newPixel = newPixels.pop();
+        top = newPixel - size;
         if (top > 0 && thresholdPixels[top] === hill && alreadySegmented[top] === 0) {
             region.push(top);
             newPixels.push(top);
             alreadySegmented[top] = 1;
         }
-        const bottom = newPixel + size;
+        bottom = newPixel + size;
         if (bottom < thresholdPixels.length && thresholdPixels[bottom] === hill && alreadySegmented[bottom] === 0) {
             region.push(bottom);
             newPixels.push(bottom);
             alreadySegmented[bottom] = 1;
         }
-        const left = newPixel - 1;
+        left = newPixel - 1;
         if (newPixel % size !== 0 && thresholdPixels[left] === hill && alreadySegmented[left] === 0) {
             region.push(left);
             newPixels.push(left);
             alreadySegmented[left] = 1;
         }
-        const right = newPixel + 1;
+        right = newPixel + 1;
         if (right % size !== 0 && thresholdPixels[right] === hill && alreadySegmented[right] === 0) {
             region.push(right);
             newPixels.push(right);
@@ -2921,25 +2927,25 @@ function $1e7ab61aa659f59a$var$findAllSegments(pixels, segImgSize, segThreshold,
 }
 async function $1e7ab61aa659f59a$export$ac55b039577b3576(image, hashFunc, limitSegments, segmentThreshold = 128, minSegmentSize = 500, segmentationImageSize = 300) {
     if (hashFunc === undefined) hashFunc = (0, $7951337d04d39bc5$export$a54d5a9c851b86d5);
-    segmentationImageSize = Math.min(image.naturalWidth, image.naturalHeight, segmentationImageSize);
+    const imageWidth = image.naturalWidth || image.width;
+    const imageHeight = image.naturalHeight || image.height;
+    segmentationImageSize = Math.min(imageWidth, imageHeight, segmentationImageSize);
     const imageCanvas = (0, $d63ce871ef98b138$export$b800e0a7c023911d).getImageCanvas(image);
     const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImageAndGetData(imageCanvas, segmentationImageSize, segmentationImageSize));
-    (0, $9d9ba2e8c9d3f75c$export$3763232abdebfe34)(pixels, segmentationImageSize, segmentationImageSize, 8);
+    (0, $9d9ba2e8c9d3f75c$export$3763232abdebfe34)(pixels, segmentationImageSize, segmentationImageSize, 4);
     const segments = $1e7ab61aa659f59a$var$findAllSegments(pixels, segmentationImageSize, segmentThreshold, minSegmentSize);
     if (limitSegments) segments.sort((a, b)=>b.length - a.length).splice(limitSegments);
-    const origW = image.naturalWidth;
-    const origH = image.naturalHeight;
-    const scaleW = origW / segmentationImageSize;
-    const scaleH = origH / segmentationImageSize;
+    const scaleW = imageWidth / segmentationImageSize;
+    const scaleH = imageHeight / segmentationImageSize;
     const hashPromises = [];
     for(let i = 0; i < segments.length; i++){
         const x = segments[i].map((num)=>num % segmentationImageSize);
         const y = segments[i].map((num)=>num / segmentationImageSize);
-        const sx = Math.min(...x) * scaleW;
-        const sy = Math.min(...y) * scaleH;
-        const sw = Math.max(...x) * scaleW - sx;
-        const sh = Math.max(...y) * scaleH - sy;
-        const cropCanvas = (0, $d63ce871ef98b138$export$b800e0a7c023911d).getImageCanvas(imageCanvas, sx, sy, sw, sh);
+        const sx = Math.min(...x);
+        const sy = Math.min(...y);
+        const sw = Math.max(...x) + 1 - sx;
+        const sh = Math.max(...y) + 1 - sy;
+        const cropCanvas = (0, $d63ce871ef98b138$export$b800e0a7c023911d).getImageCanvas((0, $d63ce871ef98b138$export$b800e0a7c023911d).getImageCanvas(image), sx * scaleW, sy * scaleH, sw * scaleW, sh * scaleH);
         hashPromises.push(hashFunc(cropCanvas));
     }
     const hashes = await Promise.all(hashPromises);
