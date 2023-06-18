@@ -1,10 +1,5 @@
-import {createWriteStream as $4eXMr$createWriteStream} from "fs";
-
 function $parcel$interopDefault(a) {
   return a && a.__esModule ? a.default : a;
-}
-function $parcel$export(e, n, v, s) {
-  Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
 var $parcel$global =
 typeof globalThis !== 'undefined'
@@ -1226,9 +1221,6 @@ parcelRequire.register("6ANEd", function(module, exports) {
 
 
 var $6c221ac32ca8caf2$exports = {};
-var $60ae514bd74eb968$exports = {};
-
-$parcel$export($60ae514bd74eb968$exports, "createCanvas", function () { return $60ae514bd74eb968$export$cd3d1f114b139967; }, function (v) { return $60ae514bd74eb968$export$cd3d1f114b139967 = v; });
 /* globals document, ImageData */ var $60ae514bd74eb968$export$807478983c0c2e;
 var $60ae514bd74eb968$export$cd3d1f114b139967;
 var $60ae514bd74eb968$export$ad40c38a6f41c9cf;
@@ -2718,7 +2710,6 @@ async function $5d99fb4c94813a28$export$75b483db6f260202(image, size = 8, remove
 
 
 
-
 const $9d9ba2e8c9d3f75c$var$mulTable = [
     512,
     512,
@@ -2839,25 +2830,30 @@ function $9d9ba2e8c9d3f75c$export$3763232abdebfe34(pixels, width, height, radius
 
 
 
-
-function $1e7ab61aa659f59a$var$debugSaveImage(pixels, filename, width, height) {
-    const rgba = new Uint8ClampedArray(width * height * 4);
-    let cur = 0;
-    for(let y = 0; y < height; y++)for(let x = 0; x < width; x++){
-        const val = pixels[y * height + x];
-        rgba[cur++] = val;
-        rgba[cur++] = val;
-        rgba[cur++] = val;
-        rgba[cur++] = 255;
-    }
-    const canvas = (0, $60ae514bd74eb968$export$cd3d1f114b139967)(width, height);
-    const ctx = canvas.getContext("2d");
-    const imgData = new (0, $60ae514bd74eb968$exports.ImageData)(rgba, width, height);
-    ctx.putImageData(imgData, 0, 0);
-    const out = $4eXMr$createWriteStream(filename);
-    const stream = canvas.createPNGStream();
-    stream.pipe(out);
-}
+// function debugSaveImage(pixels, filename, width, height) {
+//
+//     const rgba = new Uint8ClampedArray(width * height * 4);
+//
+//     let cur = 0;
+//     for (let y = 0; y < height; y++) {
+//         for (let x = 0; x < width; x++) {
+//             const val = pixels[y * height + x]
+//             rgba[cur++] = val;
+//             rgba[cur++] = val;
+//             rgba[cur++] = val;
+//             rgba[cur++] = 255;
+//         }
+//     }
+//
+//     const canvas = createCanvas(width, height);
+//     const ctx = canvas.getContext("2d");
+//     const imgData = new ImageData(rgba, width, height);
+//     ctx.putImageData(imgData, 0, 0);
+//
+//     const out = fs.createWriteStream(filename)
+//     const stream = canvas.createPNGStream()
+//     stream.pipe(out)
+// }
 function $1e7ab61aa659f59a$var$findRegion(thresholdPixels, alreadySegmented, size, hill) {
     const region = [];
     const newPixels = [];

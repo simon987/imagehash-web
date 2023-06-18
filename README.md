@@ -20,6 +20,7 @@ Implemented algorithms:
 * `dhash` Difference hash
 * `phash` Perceptual hash
 * `whash` Wavelet hash
+* `cropResistantHash` Crop resistant hash
 
 ### Example usage (browser)
 
