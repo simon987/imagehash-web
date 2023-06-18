@@ -12,6 +12,14 @@ test("phash_8_100px", async () => {
     expect(hash.toHexString()).toBe("5dbfb5310a81a361")
 });
 
+test("phash_8_hog", async () => {
+    const image = await loadImage("./test_fixtures/hog.jpg");
+
+    const hash = await phash(image, 8);
+
+    expect(hash.toHexStringReversed()).toBe("f0d282c38ed30dce")
+});
+
 // test("dhash_16_100px", async () => {
 //     const SIZE = 16;
 //     const image = await loadImage("./test_fixtures/100px.jpg");

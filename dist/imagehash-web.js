@@ -1,5 +1,10 @@
+import {createWriteStream as $4eXMr$createWriteStream} from "fs";
+
 function $parcel$interopDefault(a) {
   return a && a.__esModule ? a.default : a;
+}
+function $parcel$export(e, n, v, s) {
+  Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
 var $parcel$global =
 typeof globalThis !== 'undefined'
@@ -1221,6 +1226,9 @@ parcelRequire.register("6ANEd", function(module, exports) {
 
 
 var $6c221ac32ca8caf2$exports = {};
+var $60ae514bd74eb968$exports = {};
+
+$parcel$export($60ae514bd74eb968$exports, "createCanvas", function () { return $60ae514bd74eb968$export$cd3d1f114b139967; }, function (v) { return $60ae514bd74eb968$export$cd3d1f114b139967 = v; });
 /* globals document, ImageData */ var $60ae514bd74eb968$export$807478983c0c2e;
 var $60ae514bd74eb968$export$cd3d1f114b139967;
 var $60ae514bd74eb968$export$ad40c38a6f41c9cf;
@@ -2227,9 +2235,22 @@ $ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
      * @param image {Image|HTMLImageElement}
      * @param width {number}
      * @param height {number}
+     * @param options {{
+     *     sx: {number},
+     *     sy: {number},
+     *     sw: {number},
+     *     sh: {number},
+     * }}
      * @return {Uint8ClampedArray}
-     */ async resizeImage(image, width, height) {
-        let fromCanvas;
+     */ async resizeImageAndGetData(image, width, height, options = {}) {
+        let canvas = await this.resizeImage(image, width, height, options);
+        const ctx = canvas.getContext("2d");
+        return ctx.getImageData(0, 0, width, height).data;
+    }
+    async resizeImage(image, width, height, options) {
+        const { sx: sx , sy: sy , sw: sw , sh: sh  } = options;
+        if (typeof window !== "undefined") image.setAttribute("crossOrigin", "Anonymous");
+        let fromCanvas = this.getImageCanvas(image, sx, sy, sw, sh);
         let toCanvas;
         let pica;
         if (typeof window === "undefined") {
@@ -2237,9 +2258,6 @@ $ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
             toCanvas = (0, $60ae514bd74eb968$export$cd3d1f114b139967)(width, height);
             toCanvas.width = width;
             toCanvas.height = height;
-            fromCanvas = (0, $60ae514bd74eb968$export$cd3d1f114b139967)(image.naturalWidth, image.naturalHeight);
-            fromCanvas.width = image.naturalWidth;
-            fromCanvas.height = image.naturalHeight;
             // Trick pica into thinking that this is a normal HTML cavas
             fromCanvas[Symbol.toStringTag] = "HTMLCanvasElement";
             pica = new (0, (/*@__PURE__*/$parcel$interopDefault($ed498a97b604fad5$exports)))({
@@ -2268,15 +2286,23 @@ $ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
                 idle: 2000,
                 browserCreateCanvas: browserCreateCanvas
             });
-            image.setAttribute("crossOrigin", "Anonymous");
             toCanvas = browserCreateCanvas(width, height);
-            fromCanvas = browserCreateCanvas(image.naturalWidth, image.naturalHeight);
         }
-        const fromCtx = fromCanvas.getContext("2d");
-        fromCtx.drawImage(image, 0, 0);
         await pica.resize(fromCanvas, toCanvas);
-        const toCtx = toCanvas.getContext("2d");
-        return toCtx.getImageData(0, 0, width, height).data;
+        return toCanvas;
+    }
+    getImageCanvas(image, sx, sy, sw, sh) {
+        if (Object.prototype.toString.call(image) === "[object HTMLCanvasElement]" && sx === undefined) return image;
+        const canvas = typeof window === "undefined" ? (0, $60ae514bd74eb968$export$cd3d1f114b139967)(sw || image.width, sh || image.height) : document.createElement("canvas");
+        canvas.width = image.naturalWidth || sw;
+        canvas.height = image.naturalHeight || sh;
+        const ctx = canvas.getContext("2d");
+        if (sx !== undefined) {
+            const sCtx = image.getContext("2d");
+            const imageData = sCtx.getImageData(sx, sy, sw, sh);
+            ctx.putImageData(imageData, 0, 0);
+        } else ctx.drawImage(image, 0, 0);
+        return canvas;
     }
 }
 const $d63ce871ef98b138$export$b800e0a7c023911d = new $d63ce871ef98b138$var$CanvasUtil();
@@ -2288,8 +2314,7 @@ class $d63ce871ef98b138$var$GrayScaleConverter {
      * @param imgData {Uint8ClampedArray}
      */ convert(imgData) {
         const arr = new Uint8ClampedArray(imgData.length / 4);
-        let j = 0;
-        for(let i = 0; i < imgData.length; i += 4)arr[j++] = Math.round(imgData[i] * 299 / 1000 + imgData[i + 1] * 587 / 1000 + imgData[i + 2] * 114 / 1000);
+        for(let i = 0; i < imgData.length; i += 4)arr[i >> 2] = Math.round(imgData[i] * 299 / 1000 + imgData[i + 1] * 587 / 1000 + imgData[i + 2] * 114 / 1000);
         return arr;
     }
 }
@@ -2384,10 +2409,42 @@ class $697e84c2185d0db8$export$8d4a4db4f3b072e1 {
         return distance;
     }
 }
+class $697e84c2185d0db8$export$88a288ed7909ebd3 {
+    constructor(hashes){
+        this.segmentHashes = hashes;
+    }
+    toJSON() {
+        return this.segmentHashes.map((h)=>h.toHexString());
+    }
+    static fromJSON(json) {
+        return new $697e84c2185d0db8$export$88a288ed7909ebd3(json.map((s)=>$697e84c2185d0db8$export$8d4a4db4f3b072e1.fromHexString(s)));
+    }
+    /**
+     * @param hash {ImageMultiHash}
+     * @param hammingCutoff {number}
+     * @return {sum: number, num: number}
+     */ hashDiff(hash, hammingCutoff) {
+        let sum = 0;
+        let num = 0;
+        for(let i = 0; i < hash.segmentHashes.length; i++){
+            const distances = [];
+            for(let j = 0; j < this.segmentHashes.length; j++)distances.push(hash.segmentHashes[i].hammingDistance(this.segmentHashes[j]));
+            const minDistance = Math.min(...distances);
+            if (minDistance <= hammingCutoff) {
+                sum += minDistance;
+                num += 1;
+            }
+        }
+        return {
+            num: num,
+            sum: sum
+        };
+    }
+}
 
 
 async function $428930f2f5ca011a$export$3ff5a4f04de7e52e(image, size = 8) {
-    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImage(image, size, size));
+    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImageAndGetData(image, size, size));
     const hash = new Uint8ClampedArray(size * size);
     let sum = 0;
     for(let i = 0; i < pixels.length; i++)sum += pixels[i];
@@ -2400,7 +2457,7 @@ async function $428930f2f5ca011a$export$3ff5a4f04de7e52e(image, size = 8) {
 
 
 async function $7951337d04d39bc5$export$a54d5a9c851b86d5(image, size = 8) {
-    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImage(image, size + 1, size));
+    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImageAndGetData(image, size + 1, size));
     const hash = new Uint8ClampedArray(size * size);
     const nRows = size;
     const nCols = size + 1;
@@ -2412,19 +2469,32 @@ async function $7951337d04d39bc5$export$a54d5a9c851b86d5(image, size = 8) {
 
 
 
+const $1b5a4819c0d3ca60$var$cosCache = {};
+function $1b5a4819c0d3ca60$var$precomputeCos(L) {
+    if (L in $1b5a4819c0d3ca60$var$cosCache) return $1b5a4819c0d3ca60$var$cosCache[L];
+    const piOver2L = Math.PI / (2 * L);
+    const cos = {};
+    for(let u = 0; u < L; u++){
+        const uTimesPiOver2L = u * piOver2L;
+        for(let x = 0; x < L; x++)cos[(u << 8) + x] = Math.cos((2 * x + 1) * uTimesPiOver2L);
+    }
+    $1b5a4819c0d3ca60$var$cosCache[L] = cos;
+    return cos;
+}
 /**
  * 2D DCT-II
  * @param matrix Must be a square matrix
- * @return {Float64Array}
+ * @return {Array}
  */ function $1b5a4819c0d3ca60$var$dctTransform(matrix) {
     const L = Math.round(Math.sqrt(matrix.length));
-    const piOver2L = Math.PI / (2 * L);
-    const dct = new Float64Array(L * L);
+    const cos = $1b5a4819c0d3ca60$var$precomputeCos(L);
+    const dct = new Array(L * L);
+    let _u, _v, sum;
     for(let u = 0; u < L; u++)for(let v = 0; v < L; v++){
-        let sum = 0;
-        const uTimesPiOver2L = u * piOver2L;
-        const vTimesPiOver2L = v * piOver2L;
-        for(let x = 0; x < L; x++)for(let y = 0; y < L; y++)sum += matrix[x * L + y] * Math.cos((2 * x + 1) * uTimesPiOver2L) * Math.cos((2 * y + 1) * vTimesPiOver2L);
+        sum = 0;
+        _u = u << 8;
+        _v = v << 8;
+        for(let x = 0; x < L; x++)for(let y = 0; y < L; y++)sum += matrix[x * L + y] * cos[_u + x] * cos[_v + y];
         dct[u * L + v] = sum;
     }
     return dct;
@@ -2435,7 +2505,7 @@ function $1b5a4819c0d3ca60$var$median(values) {
 }
 async function $1b5a4819c0d3ca60$export$1b9f82d63d7325c(image, size = 8, highFrequencyFactor = 4) {
     const imageSize = size * highFrequencyFactor;
-    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImage(image, imageSize, imageSize));
+    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImageAndGetData(image, imageSize, imageSize));
     const dctOut = $1b5a4819c0d3ca60$var$dctTransform(pixels);
     const dctLowFreq = new Float64Array(size * size);
     const sorted = new Float64Array(size * size);
@@ -2617,7 +2687,7 @@ async function $5d99fb4c94813a28$export$75b483db6f260202(image, size = 8, remove
     const llMaxLevel = Math.floor(Math.log2(imageSize));
     const level = Math.floor(Math.log2(size));
     const dwtLevel = llMaxLevel - level;
-    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImage(image, imageSize, imageSize));
+    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImageAndGetData(image, imageSize, imageSize));
     let data = new Array(pixels.length);
     for(let i = 0; i < pixels.length; i++)data[i] = pixels[i] / 255;
     if (removeMaxHaarLL) {
@@ -2647,17 +2717,253 @@ async function $5d99fb4c94813a28$export$75b483db6f260202(image, size = 8, remove
 
 
 
+
+
+const $9d9ba2e8c9d3f75c$var$mulTable = [
+    512,
+    512,
+    456,
+    512,
+    328,
+    456,
+    335,
+    512,
+    405,
+    328,
+    271,
+    456
+];
+const $9d9ba2e8c9d3f75c$var$shgTable = [
+    9,
+    11,
+    12,
+    13,
+    13,
+    14,
+    14,
+    15,
+    15,
+    15,
+    15,
+    16
+];
+class $9d9ba2e8c9d3f75c$var$BlurStack {
+    r = 0;
+    next = null;
+}
+function $9d9ba2e8c9d3f75c$export$3763232abdebfe34(pixels, width, height, radius) {
+    const div = 2 * radius + 1;
+    const widthMinus1 = width - 1;
+    const heightMinus1 = height - 1;
+    const radiusPlus1 = radius + 1;
+    const sumFactor = radiusPlus1 * (radiusPlus1 + 1) / 2;
+    const stackStart = new $9d9ba2e8c9d3f75c$var$BlurStack();
+    let stack = stackStart;
+    let stackEnd;
+    for(let i = 1; i < div; i++){
+        stack = stack.next = new $9d9ba2e8c9d3f75c$var$BlurStack();
+        if (i === radiusPlus1) stackEnd = stack;
+    }
+    stack.next = stackStart;
+    let stackIn = null;
+    let stackOut = null;
+    const mulSum = $9d9ba2e8c9d3f75c$var$mulTable[radius];
+    const shgSum = $9d9ba2e8c9d3f75c$var$shgTable[radius];
+    let p;
+    let rbs;
+    let yw = 0;
+    let yi = 0;
+    for(let y = 0; y < height; y++){
+        let pr = pixels[yi], rOutSum = radiusPlus1 * pr, rSum = sumFactor * pr;
+        stack = stackStart;
+        for(let _i5 = 0; _i5 < radiusPlus1; _i5++){
+            stack.r = pr;
+            stack = stack.next;
+        }
+        let rInSum = 0;
+        for(let _i6 = 1; _i6 < radiusPlus1; _i6++){
+            rSum += (stack.r = pr = pixels[yi + (widthMinus1 < _i6 ? widthMinus1 : _i6)]) * (rbs = radiusPlus1 - _i6);
+            rInSum += pr;
+            stack = stack.next;
+        }
+        stackIn = stackStart;
+        stackOut = stackEnd;
+        for(let x = 0; x < width; x++){
+            pixels[yi] = rSum * mulSum >> shgSum;
+            rSum -= rOutSum;
+            rOutSum -= stackIn.r;
+            rInSum += stackIn.r = pixels[yw + ((p = x + radius + 1) < widthMinus1 ? p : widthMinus1)];
+            rSum += rInSum;
+            stackIn = stackIn.next;
+            rOutSum += pr = stackOut.r;
+            rInSum -= pr;
+            stackOut = stackOut.next;
+            yi += 1;
+        }
+        yw += width;
+    }
+    for(let _x2 = 0; _x2 < width; _x2++){
+        yi = _x2;
+        let _pr2 = pixels[yi], _rOutSum2 = radiusPlus1 * _pr2, _rSum2 = sumFactor * _pr2, stack = stackStart;
+        for(let _i7 = 0; _i7 < radiusPlus1; _i7++){
+            stack.r = _pr2;
+            stack = stack.next;
+        }
+        let _rInSum2 = 0;
+        for(let _i8 = 1, yp = width; _i8 <= radius; _i8++){
+            yi = yp + _x2;
+            _rSum2 += (stack.r = _pr2 = pixels[yi]) * (rbs = radiusPlus1 - _i8);
+            _rInSum2 += _pr2;
+            stack = stack.next;
+            if (_i8 < heightMinus1) yp += width;
+        }
+        yi = _x2;
+        stackIn = stackStart;
+        stackOut = stackEnd;
+        for(let _y2 = 0; _y2 < height; _y2++){
+            p = yi;
+            pixels[p] = _rSum2 * mulSum >> shgSum;
+            _rSum2 -= _rOutSum2;
+            _rOutSum2 -= stackIn.r;
+            p = _x2 + ((p = _y2 + radiusPlus1) < heightMinus1 ? p : heightMinus1) * width;
+            _rSum2 += _rInSum2 += stackIn.r = pixels[p];
+            stackIn = stackIn.next;
+            _rOutSum2 += _pr2 = stackOut.r;
+            _rInSum2 -= _pr2;
+            stackOut = stackOut.next;
+            yi += width;
+        }
+    }
+}
+
+
+
+
+
+function $1e7ab61aa659f59a$var$debugSaveImage(pixels, filename, width, height) {
+    const rgba = new Uint8ClampedArray(width * height * 4);
+    let cur = 0;
+    for(let y = 0; y < height; y++)for(let x = 0; x < width; x++){
+        const val = pixels[y * height + x];
+        rgba[cur++] = val;
+        rgba[cur++] = val;
+        rgba[cur++] = val;
+        rgba[cur++] = 255;
+    }
+    const canvas = (0, $60ae514bd74eb968$export$cd3d1f114b139967)(width, height);
+    const ctx = canvas.getContext("2d");
+    const imgData = new (0, $60ae514bd74eb968$exports.ImageData)(rgba, width, height);
+    ctx.putImageData(imgData, 0, 0);
+    const out = $4eXMr$createWriteStream(filename);
+    const stream = canvas.createPNGStream();
+    stream.pipe(out);
+}
+function $1e7ab61aa659f59a$var$findRegion(thresholdPixels, alreadySegmented, size, hill) {
+    const region = [];
+    const newPixels = [];
+    // Find the first pixel available
+    for(let i = 0; i < thresholdPixels.length; i++)if (thresholdPixels[i] === hill && alreadySegmented[i] === 0) {
+        region.push(i);
+        newPixels.push(i);
+        alreadySegmented[i] = 1;
+        break;
+    }
+    while(newPixels.length > 0){
+        const newPixel = newPixels.pop();
+        const top = newPixel - size;
+        if (top > 0 && thresholdPixels[top] === hill && alreadySegmented[top] === 0) {
+            region.push(top);
+            newPixels.push(top);
+            alreadySegmented[top] = 1;
+        }
+        const bottom = newPixel + size;
+        if (bottom < thresholdPixels.length && thresholdPixels[bottom] === hill && alreadySegmented[bottom] === 0) {
+            region.push(bottom);
+            newPixels.push(bottom);
+            alreadySegmented[bottom] = 1;
+        }
+        const left = newPixel - 1;
+        if (newPixel % size !== 0 && thresholdPixels[left] === hill && alreadySegmented[left] === 0) {
+            region.push(left);
+            newPixels.push(left);
+            alreadySegmented[left] = 1;
+        }
+        const right = newPixel + 1;
+        if (right % size !== 0 && thresholdPixels[right] === hill && alreadySegmented[right] === 0) {
+            region.push(right);
+            newPixels.push(right);
+            alreadySegmented[right] = 1;
+        }
+    }
+    return region;
+}
+function $1e7ab61aa659f59a$var$findAllSegments(pixels, segImgSize, segThreshold, minSegSize) {
+    let hillCount = 0;
+    const thresholdPixels = new Uint8ClampedArray(pixels.length);
+    for(let i = 0; i < pixels.length; i++){
+        thresholdPixels[i] = pixels[i] > segThreshold;
+        hillCount += pixels[i] > segThreshold;
+    }
+    const valleyCount = pixels.length - hillCount;
+    const segments = [];
+    const alreadySegmented = new Uint8ClampedArray(pixels.length);
+    // Find all the "hill" regions
+    let segmentedCount = 0;
+    while(segmentedCount < hillCount){
+        const segment = $1e7ab61aa659f59a$var$findRegion(thresholdPixels, alreadySegmented, segImgSize, 1);
+        if (segment.length > minSegSize) segments.push(segment);
+        segmentedCount += segment.length;
+    }
+    // Find all the "valley" regions
+    segmentedCount = 0;
+    while(segmentedCount < valleyCount){
+        const segment = $1e7ab61aa659f59a$var$findRegion(thresholdPixels, alreadySegmented, segImgSize, 0);
+        if (segment.length > minSegSize) segments.push(segment);
+        segmentedCount += segment.length;
+    }
+    return segments;
+}
+async function $1e7ab61aa659f59a$export$ac55b039577b3576(image, hashFunc, limitSegments, segmentThreshold = 128, minSegmentSize = 500, segmentationImageSize = 300) {
+    if (hashFunc === undefined) hashFunc = (0, $7951337d04d39bc5$export$a54d5a9c851b86d5);
+    segmentationImageSize = Math.min(image.naturalWidth, image.naturalHeight, segmentationImageSize);
+    const imageCanvas = (0, $d63ce871ef98b138$export$b800e0a7c023911d).getImageCanvas(image);
+    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImageAndGetData(imageCanvas, segmentationImageSize, segmentationImageSize));
+    (0, $9d9ba2e8c9d3f75c$export$3763232abdebfe34)(pixels, segmentationImageSize, segmentationImageSize, 8);
+    const segments = $1e7ab61aa659f59a$var$findAllSegments(pixels, segmentationImageSize, segmentThreshold, minSegmentSize);
+    if (limitSegments) segments.sort((a, b)=>b.length - a.length).splice(limitSegments);
+    const origW = image.naturalWidth;
+    const origH = image.naturalHeight;
+    const scaleW = origW / segmentationImageSize;
+    const scaleH = origH / segmentationImageSize;
+    const hashPromises = [];
+    for(let i = 0; i < segments.length; i++){
+        const x = segments[i].map((num)=>num % segmentationImageSize);
+        const y = segments[i].map((num)=>num / segmentationImageSize);
+        const sx = Math.min(...x) * scaleW;
+        const sy = Math.min(...y) * scaleH;
+        const sw = Math.max(...x) * scaleW - sx;
+        const sh = Math.max(...y) * scaleH - sy;
+        const cropCanvas = (0, $d63ce871ef98b138$export$b800e0a7c023911d).getImageCanvas(imageCanvas, sx, sy, sw, sh);
+        hashPromises.push(hashFunc(cropCanvas));
+    }
+    const hashes = await Promise.all(hashPromises);
+    return new (0, $697e84c2185d0db8$export$88a288ed7909ebd3)(hashes);
+}
+
+
 $6c221ac32ca8caf2$exports = [
     (0, $428930f2f5ca011a$export$3ff5a4f04de7e52e),
     (0, $7951337d04d39bc5$export$a54d5a9c851b86d5),
     (0, $1b5a4819c0d3ca60$export$1b9f82d63d7325c),
     (0, $5d99fb4c94813a28$export$75b483db6f260202),
+    (0, $1e7ab61aa659f59a$export$ac55b039577b3576),
     (0, $697e84c2185d0db8$export$8d4a4db4f3b072e1)
 ];
 window.ahash = (0, $428930f2f5ca011a$export$3ff5a4f04de7e52e);
 window.dhash = (0, $7951337d04d39bc5$export$a54d5a9c851b86d5);
 window.phash = (0, $1b5a4819c0d3ca60$export$1b9f82d63d7325c);
 window.whash = (0, $5d99fb4c94813a28$export$75b483db6f260202);
+window.cropResistantHash = (0, $1e7ab61aa659f59a$export$ac55b039577b3576);
 window.ImageHash = (0, $697e84c2185d0db8$export$8d4a4db4f3b072e1);
 
 
