@@ -1225,7 +1225,6 @@ parcelRequire.register("6ANEd", function(module, exports) {
 
 
 
-var $6c221ac32ca8caf2$exports = {};
 var $60ae514bd74eb968$exports = {};
 
 $parcel$export($60ae514bd74eb968$exports, "createCanvas", function () { return $60ae514bd74eb968$export$cd3d1f114b139967; }, function (v) { return $60ae514bd74eb968$export$cd3d1f114b139967 = v; });
@@ -2953,14 +2952,6 @@ async function $1e7ab61aa659f59a$export$ac55b039577b3576(image, hashFunc, limitS
 }
 
 
-$6c221ac32ca8caf2$exports = {
-    ahash: $428930f2f5ca011a$export$3ff5a4f04de7e52e,
-    dhash: $7951337d04d39bc5$export$a54d5a9c851b86d5,
-    phash: $1b5a4819c0d3ca60$export$1b9f82d63d7325c,
-    whash: $5d99fb4c94813a28$export$75b483db6f260202,
-    cropResistantHash: $1e7ab61aa659f59a$export$ac55b039577b3576,
-    ImageHash: $697e84c2185d0db8$export$8d4a4db4f3b072e1
-};
 if (typeof window !== "undefined") {
     window.ahash = (0, $428930f2f5ca011a$export$3ff5a4f04de7e52e);
     window.dhash = (0, $7951337d04d39bc5$export$a54d5a9c851b86d5);
@@ -2971,5 +2962,5 @@ if (typeof window !== "undefined") {
 }
 
 
-export {$6c221ac32ca8caf2$exports as default};
+export {$428930f2f5ca011a$export$3ff5a4f04de7e52e as ahash, $7951337d04d39bc5$export$a54d5a9c851b86d5 as dhash, $1b5a4819c0d3ca60$export$1b9f82d63d7325c as phash, $5d99fb4c94813a28$export$75b483db6f260202 as whash, $1e7ab61aa659f59a$export$ac55b039577b3576 as cropResistantHash, $697e84c2185d0db8$export$8d4a4db4f3b072e1 as ImageHash};
 //# sourceMappingURL=imagehash-web.js.map
