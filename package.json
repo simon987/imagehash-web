@@ -1,15 +1,16 @@
 {
   "name": "imagehash-web",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "homepage": "https://github.com/simon987/imagehash-web",
   "repository": {
     "type": "git",
     "url": "https://github.com/simon987/imagehash-web"
   },
-  "main": "dist/imagehash-web.js",
-  "mainMin": "dist/imagehash-web.min.js",
   "source": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "types": "lib/index.d.ts",
+  "main": "dist/main.js",
+  "browser": "dist/imagehash-web.js",
+  "browserMin": "dist/imagehash-web.min.js",
   "license": "MIT",
   "scripts": {
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
@@ -27,8 +28,11 @@
     "canvas": "^2.11.2",
     "pica": "^9.0.1"
   },
+  "engines": {
+    "node": ">= 16"
+  },
   "targets": {
-    "mainMin": {
+    "browserMin": {
       "engines": {
         "browsers": "> 0.5%, last 2 versions, not dead"
       },
@@ -36,14 +40,15 @@
       "optimize": true,
       "sourceMap": false
     },
-    "main": {
+    "browser": {
       "engines": {
         "browsers": "> 0.5%, last 2 versions, not dead"
       },
       "includeNodeModules": true,
       "optimize": false,
       "sourceMap": true
-    }
+    },
+    "types": false
   },
   "type": "module",
   "browserslist": [
