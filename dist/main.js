@@ -25,7 +25,6 @@ import {createWriteStream as $aVFho$createWriteStream} from "fs";
     }
     async resizeImage(image, width, height, options) {
         const { sx: sx , sy: sy , sw: sw , sh: sh  } = options;
-        if (typeof window !== "undefined") image.setAttribute("crossOrigin", "Anonymous");
         let fromCanvas = this.getImageCanvas(image, sx, sy, sw, sh);
         let toCanvas;
         let pica;
