@@ -1,5 +1,3 @@
-import {createWriteStream as $4eXMr$createWriteStream} from "fs";
-
 function $parcel$interopDefault(a) {
   return a && a.__esModule ? a.default : a;
 }
@@ -44,17 +42,17 @@ if (parcelRequire == null) {
 
   $parcel$global["parcelRequire6ada"] = parcelRequire;
 }
-parcelRequire.register("2DSRQ", function(module, exports) {
-var $1ec9c8ce20f4c416$var$bundleFn = arguments[3];
-var $1ec9c8ce20f4c416$var$sources = arguments[4];
-var $1ec9c8ce20f4c416$var$cache = arguments[5];
-var $1ec9c8ce20f4c416$var$stringify = JSON.stringify;
+parcelRequire.register("1A6un", function(module, exports) {
+var $126e2fcaef236f17$var$bundleFn = arguments[3];
+var $126e2fcaef236f17$var$sources = arguments[4];
+var $126e2fcaef236f17$var$cache = arguments[5];
+var $126e2fcaef236f17$var$stringify = JSON.stringify;
 module.exports = function(fn, options) {
     var wkey;
-    var cacheKeys = Object.keys($1ec9c8ce20f4c416$var$cache);
+    var cacheKeys = Object.keys($126e2fcaef236f17$var$cache);
     for(var i = 0, l = cacheKeys.length; i < l; i++){
         var key = cacheKeys[i];
-        var exp = $1ec9c8ce20f4c416$var$cache[key].exports;
+        var exp = $126e2fcaef236f17$var$cache[key].exports;
         // Using babel as a transpiler to use esmodule, the export will always
         // be an object with the default export as a property of it. To ensure
         // the existing api and babel esmodule exports are both supported we
@@ -71,7 +69,7 @@ module.exports = function(fn, options) {
             var key = cacheKeys[i];
             wcache[key] = key;
         }
-        $1ec9c8ce20f4c416$var$sources[wkey] = [
+        $126e2fcaef236f17$var$sources[wkey] = [
             "function(require,module,exports){" + fn + "(self); }",
             wcache
         ];
@@ -79,22 +77,22 @@ module.exports = function(fn, options) {
     var skey = Math.floor(Math.pow(16, 8) * Math.random()).toString(16);
     var scache = {};
     scache[wkey] = wkey;
-    $1ec9c8ce20f4c416$var$sources[skey] = [
-        "function(require,module,exports){var f = require(" + $1ec9c8ce20f4c416$var$stringify(wkey) + ");" + "(f.default ? f.default : f)(self);" + "}",
+    $126e2fcaef236f17$var$sources[skey] = [
+        "function(require,module,exports){var f = require(" + $126e2fcaef236f17$var$stringify(wkey) + ");" + "(f.default ? f.default : f)(self);" + "}",
         scache
     ];
     var workerSources = {};
     resolveSources(skey);
     function resolveSources(key) {
         workerSources[key] = true;
-        for(var depPath in $1ec9c8ce20f4c416$var$sources[key][1]){
-            var depKey = $1ec9c8ce20f4c416$var$sources[key][1][depPath];
+        for(var depPath in $126e2fcaef236f17$var$sources[key][1]){
+            var depKey = $126e2fcaef236f17$var$sources[key][1][depPath];
             if (!workerSources[depKey]) resolveSources(depKey);
         }
     }
-    var src = "(" + $1ec9c8ce20f4c416$var$bundleFn + ")({" + Object.keys(workerSources).map(function(key) {
-        return $1ec9c8ce20f4c416$var$stringify(key) + ":[" + $1ec9c8ce20f4c416$var$sources[key][0] + "," + $1ec9c8ce20f4c416$var$stringify($1ec9c8ce20f4c416$var$sources[key][1]) + "]";
-    }).join(",") + "},{},[" + $1ec9c8ce20f4c416$var$stringify(skey) + "])";
+    var src = "(" + $126e2fcaef236f17$var$bundleFn + ")({" + Object.keys(workerSources).map(function(key) {
+        return $126e2fcaef236f17$var$stringify(key) + ":[" + $126e2fcaef236f17$var$sources[key][0] + "," + $126e2fcaef236f17$var$stringify($126e2fcaef236f17$var$sources[key][1]) + "]";
+    }).join(",") + "},{},[" + $126e2fcaef236f17$var$stringify(skey) + "])";
     var URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
     var blob = new Blob([
         src
@@ -110,7 +108,7 @@ module.exports = function(fn, options) {
 
 });
 
-parcelRequire.register("19T8x", function(module, exports) {
+parcelRequire.register("iX7ak", function(module, exports) {
 // Collection of math functions
 //
 // 1. Combine components together
@@ -118,50 +116,50 @@ parcelRequire.register("19T8x", function(module, exports) {
 //
 "use strict";
 
-var $49iNq = parcelRequire("49iNq");
+var $ajcJ4 = parcelRequire("ajcJ4");
 
-var $1a9jM = parcelRequire("1a9jM");
+var $aTIbr = parcelRequire("aTIbr");
 
-var $2KSXN = parcelRequire("2KSXN");
-function $0d8166b3945003c2$var$MathLib(requested_features) {
+var $d3rCt = parcelRequire("d3rCt");
+function $dcc34ba0b29a1e35$var$MathLib(requested_features) {
     const __requested_features = requested_features || [];
     let features = {
         js: __requested_features.indexOf("js") >= 0,
         wasm: __requested_features.indexOf("wasm") >= 0
     };
-    $49iNq.call(this, features);
+    $ajcJ4.call(this, features);
     this.features = {
         js: features.js,
         wasm: features.wasm && this.has_wasm()
     };
-    this.use($1a9jM);
-    this.use($2KSXN);
+    this.use($aTIbr);
+    this.use($d3rCt);
 }
-$0d8166b3945003c2$var$MathLib.prototype = Object.create($49iNq.prototype);
-$0d8166b3945003c2$var$MathLib.prototype.constructor = $0d8166b3945003c2$var$MathLib;
-$0d8166b3945003c2$var$MathLib.prototype.resizeAndUnsharp = function resizeAndUnsharp(options, cache) {
+$dcc34ba0b29a1e35$var$MathLib.prototype = Object.create($ajcJ4.prototype);
+$dcc34ba0b29a1e35$var$MathLib.prototype.constructor = $dcc34ba0b29a1e35$var$MathLib;
+$dcc34ba0b29a1e35$var$MathLib.prototype.resizeAndUnsharp = function resizeAndUnsharp(options, cache) {
     let result = this.resize(options, cache);
     if (options.unsharpAmount) this.unsharp_mask(result, options.toWidth, options.toHeight, options.unsharpAmount, options.unsharpRadius, options.unsharpThreshold);
     return result;
 };
-module.exports = $0d8166b3945003c2$var$MathLib;
+module.exports = $dcc34ba0b29a1e35$var$MathLib;
 
 });
-parcelRequire.register("49iNq", function(module, exports) {
+parcelRequire.register("ajcJ4", function(module, exports) {
 "use strict";
 
-var $fQtfM = parcelRequire("fQtfM");
+var $3TIyg = parcelRequire("3TIyg");
 
-var $kijxc = parcelRequire("kijxc");
+var $8GJnu = parcelRequire("8GJnu");
 
-var $3si4w = parcelRequire("3si4w");
-var $3056953b666e0c8f$var$DEFAULT_OPTIONS = {
+var $laV7W = parcelRequire("laV7W");
+var $78158cd5ca161ab2$var$DEFAULT_OPTIONS = {
     js: true,
     wasm: true
 };
-function $3056953b666e0c8f$var$MultiMath(options) {
-    if (!(this instanceof $3056953b666e0c8f$var$MultiMath)) return new $3056953b666e0c8f$var$MultiMath(options);
-    var opts = $fQtfM({}, $3056953b666e0c8f$var$DEFAULT_OPTIONS, options || {});
+function $78158cd5ca161ab2$var$MultiMath(options) {
+    if (!(this instanceof $78158cd5ca161ab2$var$MultiMath)) return new $78158cd5ca161ab2$var$MultiMath(options);
+    var opts = $3TIyg({}, $78158cd5ca161ab2$var$DEFAULT_OPTIONS, options || {});
     this.options = opts;
     this.__cache = {};
     this.__init_promise = null;
@@ -176,15 +174,15 @@ function $3056953b666e0c8f$var$MultiMath(options) {
     ]).buffer)[0] === 1;
     if (!this.options.js && !this.options.wasm) throw new Error('mathlib: at least "js" or "wasm" should be enabled');
 }
-$3056953b666e0c8f$var$MultiMath.prototype.has_wasm = $3si4w;
-$3056953b666e0c8f$var$MultiMath.prototype.use = function(module1) {
+$78158cd5ca161ab2$var$MultiMath.prototype.has_wasm = $laV7W;
+$78158cd5ca161ab2$var$MultiMath.prototype.use = function(module1) {
     this.__modules[module1.name] = module1;
     // Pin the best possible implementation
     if (this.options.wasm && this.has_wasm() && module1.wasm_fn) this[module1.name] = module1.wasm_fn;
     else this[module1.name] = module1.fn;
     return this;
 };
-$3056953b666e0c8f$var$MultiMath.prototype.init = function() {
+$78158cd5ca161ab2$var$MultiMath.prototype.init = function() {
     if (this.__init_promise) return this.__init_promise;
     if (!this.options.js && this.options.wasm && !this.has_wasm()) return Promise.reject(new Error('mathlib: only "wasm" was enabled, but it\'s not supported'));
     var self = this;
@@ -207,12 +205,12 @@ $3056953b666e0c8f$var$MultiMath.prototype.init = function() {
 // Simple decode base64 to typed array. Useful to load embedded webassembly
 // code. You probably don't need to call this method directly.
 //
-$3056953b666e0c8f$var$MultiMath.prototype.__base64decode = $kijxc;
+$78158cd5ca161ab2$var$MultiMath.prototype.__base64decode = $8GJnu;
 // Increase current memory to include specified number of bytes. Do nothing if
 // size is already ok. You probably don't need to call this method directly,
 // because it will be invoked from `.__instance()`.
 //
-$3056953b666e0c8f$var$MultiMath.prototype.__reallocate = function mem_grow_to(bytes) {
+$78158cd5ca161ab2$var$MultiMath.prototype.__reallocate = function mem_grow_to(bytes) {
     if (!this.__memory) {
         this.__memory = new WebAssembly.Memory({
             initial: Math.ceil(bytes / 65536)
@@ -231,7 +229,7 @@ $3056953b666e0c8f$var$MultiMath.prototype.__reallocate = function mem_grow_to(by
 // - can export functions to webassembly via "env_extra",
 //   for example, { exp: Math.exp }
 //
-$3056953b666e0c8f$var$MultiMath.prototype.__instance = function instance(name, memsize, env_extra) {
+$78158cd5ca161ab2$var$MultiMath.prototype.__instance = function instance(name, memsize, env_extra) {
     if (memsize) this.__reallocate(memsize);
     // If .init() was not called, do sync compile
     if (!this.__wasm[name]) {
@@ -249,7 +247,7 @@ $3056953b666e0c8f$var$MultiMath.prototype.__instance = function instance(name, m
             })
         };
         this.__cache[name] = new WebAssembly.Instance(this.__wasm[name], {
-            env: $fQtfM(env_base, env_extra || {})
+            env: $3TIyg(env_base, env_extra || {})
         });
     }
     return this.__cache[name];
@@ -257,28 +255,28 @@ $3056953b666e0c8f$var$MultiMath.prototype.__instance = function instance(name, m
 // Helper to calculate memory aligh for pointers. Webassembly does not require
 // this, but you may wish to experiment. Default base = 8;
 //
-$3056953b666e0c8f$var$MultiMath.prototype.__align = function align(number, base) {
+$78158cd5ca161ab2$var$MultiMath.prototype.__align = function align(number, base) {
     base = base || 8;
     var reminder = number % base;
     return number + (reminder ? base - reminder : 0);
 };
-module.exports = $3056953b666e0c8f$var$MultiMath;
+module.exports = $78158cd5ca161ab2$var$MultiMath;
 
 });
-parcelRequire.register("fQtfM", function(module, exports) {
+parcelRequire.register("3TIyg", function(module, exports) {
 /*
 object-assign
 (c) Sindre Sorhus
 @license MIT
 */ "use strict";
-/* eslint-disable no-unused-vars */ var $b8926777c1f9d02b$var$getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var $b8926777c1f9d02b$var$hasOwnProperty = Object.prototype.hasOwnProperty;
-var $b8926777c1f9d02b$var$propIsEnumerable = Object.prototype.propertyIsEnumerable;
-function $b8926777c1f9d02b$var$toObject(val) {
+/* eslint-disable no-unused-vars */ var $2d691132600f8c74$var$getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var $2d691132600f8c74$var$hasOwnProperty = Object.prototype.hasOwnProperty;
+var $2d691132600f8c74$var$propIsEnumerable = Object.prototype.propertyIsEnumerable;
+function $2d691132600f8c74$var$toObject(val) {
     if (val === null || val === undefined) throw new TypeError("Object.assign cannot be called with null or undefined");
     return Object(val);
 }
-function $b8926777c1f9d02b$var$shouldUseNative() {
+function $2d691132600f8c74$var$shouldUseNative() {
     try {
         if (!Object.assign) return false;
         // Detect buggy property enumeration order in older V8 versions.
@@ -305,16 +303,16 @@ function $b8926777c1f9d02b$var$shouldUseNative() {
         return false;
     }
 }
-module.exports = $b8926777c1f9d02b$var$shouldUseNative() ? Object.assign : function(target, source) {
+module.exports = $2d691132600f8c74$var$shouldUseNative() ? Object.assign : function(target, source) {
     var from;
-    var to = $b8926777c1f9d02b$var$toObject(target);
+    var to = $2d691132600f8c74$var$toObject(target);
     var symbols;
     for(var s = 1; s < arguments.length; s++){
         from = Object(arguments[s]);
-        for(var key in from)if ($b8926777c1f9d02b$var$hasOwnProperty.call(from, key)) to[key] = from[key];
-        if ($b8926777c1f9d02b$var$getOwnPropertySymbols) {
-            symbols = $b8926777c1f9d02b$var$getOwnPropertySymbols(from);
-            for(var i = 0; i < symbols.length; i++)if ($b8926777c1f9d02b$var$propIsEnumerable.call(from, symbols[i])) to[symbols[i]] = from[symbols[i]];
+        for(var key in from)if ($2d691132600f8c74$var$hasOwnProperty.call(from, key)) to[key] = from[key];
+        if ($2d691132600f8c74$var$getOwnPropertySymbols) {
+            symbols = $2d691132600f8c74$var$getOwnPropertySymbols(from);
+            for(var i = 0; i < symbols.length; i++)if ($2d691132600f8c74$var$propIsEnumerable.call(from, symbols[i])) to[symbols[i]] = from[symbols[i]];
         }
     }
     return to;
@@ -322,11 +320,11 @@ module.exports = $b8926777c1f9d02b$var$shouldUseNative() ? Object.assign : funct
 
 });
 
-parcelRequire.register("kijxc", function(module, exports) {
+parcelRequire.register("8GJnu", function(module, exports) {
 // base64 decode str -> Uint8Array, to load WA modules
 //
 "use strict";
-var $ec64a437626d5d15$var$BASE64_MAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+var $653572121d5dd605$var$BASE64_MAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 module.exports = function base64decode(str) {
     var input = str.replace(/[\r\n=]/g, ""), max = input.length;
     var out = new Uint8Array(max * 3 >> 2);
@@ -339,7 +337,7 @@ module.exports = function base64decode(str) {
             out[ptr++] = bits >> 8 & 0xFF;
             out[ptr++] = bits & 0xFF;
         }
-        bits = bits << 6 | $ec64a437626d5d15$var$BASE64_MAP.indexOf(input.charAt(idx));
+        bits = bits << 6 | $653572121d5dd605$var$BASE64_MAP.indexOf(input.charAt(idx));
     }
     // Dump tail
     var tailbits = max % 4 * 6;
@@ -356,18 +354,18 @@ module.exports = function base64decode(str) {
 
 });
 
-parcelRequire.register("3si4w", function(module, exports) {
+parcelRequire.register("laV7W", function(module, exports) {
 // Detect WebAssembly support.
 // - Check global WebAssembly object
 // - Try to load simple module (can be disabled via CSP)
 //
 "use strict";
-var $284201524565041a$var$wa;
+var $f6a6d866c6ad6954$var$wa;
 module.exports = function hasWebAssembly() {
     // use cache if called before;
-    if (typeof $284201524565041a$var$wa !== "undefined") return $284201524565041a$var$wa;
-    $284201524565041a$var$wa = false;
-    if (typeof WebAssembly === "undefined") return $284201524565041a$var$wa;
+    if (typeof $f6a6d866c6ad6954$var$wa !== "undefined") return $f6a6d866c6ad6954$var$wa;
+    $f6a6d866c6ad6954$var$wa = false;
+    if (typeof WebAssembly === "undefined") return $f6a6d866c6ad6954$var$wa;
     // If WebAssenbly is disabled, code can throw on compile
     try {
         // https://github.com/brion/min-wasm-fail/blob/master/min-wasm-fail.in.js
@@ -431,29 +429,29 @@ module.exports = function hasWebAssembly() {
         var instance = new WebAssembly.Instance(module1, {});
         // test storing to and loading from a non-zero location via a parameter.
         // Safari on iOS 11.2.5 returns 0 unexpectedly at non-zero locations
-        if (instance.exports.test(4) !== 0) $284201524565041a$var$wa = true;
-        return $284201524565041a$var$wa;
+        if (instance.exports.test(4) !== 0) $f6a6d866c6ad6954$var$wa = true;
+        return $f6a6d866c6ad6954$var$wa;
     } catch (__) {}
-    return $284201524565041a$var$wa;
+    return $f6a6d866c6ad6954$var$wa;
 };
 
 });
 
 
-parcelRequire.register("1a9jM", function(module, exports) {
+parcelRequire.register("aTIbr", function(module, exports) {
 "use strict";
 
 
 
 module.exports = {
     name: "unsharp_mask",
-    fn: (parcelRequire("l1Xxr")),
-    wasm_fn: (parcelRequire("5UGOk")),
-    wasm_src: (parcelRequire("3Rekc"))
+    fn: (parcelRequire("4GZ5F")),
+    wasm_fn: (parcelRequire("fNP2l")),
+    wasm_src: (parcelRequire("9i7xK"))
 };
 
 });
-parcelRequire.register("l1Xxr", function(module, exports) {
+parcelRequire.register("4GZ5F", function(module, exports) {
 // Unsharp mask filter
 //
 // http://stackoverflow.com/a/23322820/1031804
@@ -465,8 +463,8 @@ parcelRequire.register("l1Xxr", function(module, exports) {
 //
 "use strict";
 
-var $is9XY = parcelRequire("is9XY");
-function $f4f7e00ead93451e$var$hsv_v16(img, width, height) {
+var $iOakF = parcelRequire("iOakF");
+function $36aa78f752f5c9fa$var$hsv_v16(img, width, height) {
     var size = width * height;
     var out = new Uint16Array(size);
     var r, g, b, max;
@@ -484,9 +482,9 @@ module.exports = function unsharp(img, width, height, amount, radius, threshold)
     var diff, iTimes4;
     if (amount === 0 || radius < 0.5) return;
     if (radius > 2.0) radius = 2.0;
-    var brightness = $f4f7e00ead93451e$var$hsv_v16(img, width, height);
+    var brightness = $36aa78f752f5c9fa$var$hsv_v16(img, width, height);
     var blured = new Uint16Array(brightness); // copy, because blur modify src
-    $is9XY(blured, width, height, radius);
+    $iOakF(blured, width, height, radius);
     var amountFp = amount / 100 * 0x1000 + 0.5 | 0;
     var thresholdFp = threshold << 8;
     var size = width * height;
@@ -522,36 +520,36 @@ module.exports = function unsharp(img, width, height, amount, radius, threshold)
 };
 
 });
-parcelRequire.register("is9XY", function(module, exports) {
+parcelRequire.register("iOakF", function(module, exports) {
 // Calculate Gaussian blur of an image using IIR filter
 // The method is taken from Intel's white paper and code example attached to it:
 // https://software.intel.com/en-us/articles/iir-gaussian-blur-filter
 // -implementation-using-intel-advanced-vector-extensions
-var $d6f292a51fd4f59d$var$a0, $d6f292a51fd4f59d$var$a1, $d6f292a51fd4f59d$var$a2, $d6f292a51fd4f59d$var$a3, $d6f292a51fd4f59d$var$b1, $d6f292a51fd4f59d$var$b2, $d6f292a51fd4f59d$var$left_corner, $d6f292a51fd4f59d$var$right_corner;
-function $d6f292a51fd4f59d$var$gaussCoef(sigma) {
+var $db14e945a56f01b2$var$a0, $db14e945a56f01b2$var$a1, $db14e945a56f01b2$var$a2, $db14e945a56f01b2$var$a3, $db14e945a56f01b2$var$b1, $db14e945a56f01b2$var$b2, $db14e945a56f01b2$var$left_corner, $db14e945a56f01b2$var$right_corner;
+function $db14e945a56f01b2$var$gaussCoef(sigma) {
     if (sigma < 0.5) sigma = 0.5;
     var a = Math.exp(0.527076) / sigma, g1 = Math.exp(-a), g2 = Math.exp(-2 * a), k = (1 - g1) * (1 - g1) / (1 + 2 * a * g1 - g2);
-    $d6f292a51fd4f59d$var$a0 = k;
-    $d6f292a51fd4f59d$var$a1 = k * (a - 1) * g1;
-    $d6f292a51fd4f59d$var$a2 = k * (a + 1) * g1;
-    $d6f292a51fd4f59d$var$a3 = -k * g2;
-    $d6f292a51fd4f59d$var$b1 = 2 * g1;
-    $d6f292a51fd4f59d$var$b2 = -g2;
-    $d6f292a51fd4f59d$var$left_corner = ($d6f292a51fd4f59d$var$a0 + $d6f292a51fd4f59d$var$a1) / (1 - $d6f292a51fd4f59d$var$b1 - $d6f292a51fd4f59d$var$b2);
-    $d6f292a51fd4f59d$var$right_corner = ($d6f292a51fd4f59d$var$a2 + $d6f292a51fd4f59d$var$a3) / (1 - $d6f292a51fd4f59d$var$b1 - $d6f292a51fd4f59d$var$b2);
+    $db14e945a56f01b2$var$a0 = k;
+    $db14e945a56f01b2$var$a1 = k * (a - 1) * g1;
+    $db14e945a56f01b2$var$a2 = k * (a + 1) * g1;
+    $db14e945a56f01b2$var$a3 = -k * g2;
+    $db14e945a56f01b2$var$b1 = 2 * g1;
+    $db14e945a56f01b2$var$b2 = -g2;
+    $db14e945a56f01b2$var$left_corner = ($db14e945a56f01b2$var$a0 + $db14e945a56f01b2$var$a1) / (1 - $db14e945a56f01b2$var$b1 - $db14e945a56f01b2$var$b2);
+    $db14e945a56f01b2$var$right_corner = ($db14e945a56f01b2$var$a2 + $db14e945a56f01b2$var$a3) / (1 - $db14e945a56f01b2$var$b1 - $db14e945a56f01b2$var$b2);
     // Attempt to force type to FP32.
     return new Float32Array([
-        $d6f292a51fd4f59d$var$a0,
-        $d6f292a51fd4f59d$var$a1,
-        $d6f292a51fd4f59d$var$a2,
-        $d6f292a51fd4f59d$var$a3,
-        $d6f292a51fd4f59d$var$b1,
-        $d6f292a51fd4f59d$var$b2,
-        $d6f292a51fd4f59d$var$left_corner,
-        $d6f292a51fd4f59d$var$right_corner
+        $db14e945a56f01b2$var$a0,
+        $db14e945a56f01b2$var$a1,
+        $db14e945a56f01b2$var$a2,
+        $db14e945a56f01b2$var$a3,
+        $db14e945a56f01b2$var$b1,
+        $db14e945a56f01b2$var$b2,
+        $db14e945a56f01b2$var$left_corner,
+        $db14e945a56f01b2$var$right_corner
     ]);
 }
-function $d6f292a51fd4f59d$var$convolveMono16(src, out, line, coeff, width, height) {
+function $db14e945a56f01b2$var$convolveMono16(src, out, line, coeff, width, height) {
     // takes src image and writes the blurred and transposed result into out
     var prev_src, curr_src, curr_out, prev_out, prev_prev_out;
     var src_index, out_index, line_index;
@@ -602,20 +600,20 @@ function $d6f292a51fd4f59d$var$convolveMono16(src, out, line, coeff, width, heig
         }
     }
 }
-function $d6f292a51fd4f59d$var$blurMono16(src, width, height, radius) {
+function $db14e945a56f01b2$var$blurMono16(src, width, height, radius) {
     // Quick exit on zero radius
     if (!radius) return;
     var out = new Uint16Array(src.length), tmp_line = new Float32Array(Math.max(width, height));
-    var coeff = $d6f292a51fd4f59d$var$gaussCoef(radius);
-    $d6f292a51fd4f59d$var$convolveMono16(src, out, tmp_line, coeff, width, height, radius);
-    $d6f292a51fd4f59d$var$convolveMono16(out, src, tmp_line, coeff, height, width, radius);
+    var coeff = $db14e945a56f01b2$var$gaussCoef(radius);
+    $db14e945a56f01b2$var$convolveMono16(src, out, tmp_line, coeff, width, height, radius);
+    $db14e945a56f01b2$var$convolveMono16(out, src, tmp_line, coeff, height, width, radius);
 }
-module.exports = $d6f292a51fd4f59d$var$blurMono16;
+module.exports = $db14e945a56f01b2$var$blurMono16;
 
 });
 
 
-parcelRequire.register("5UGOk", function(module, exports) {
+parcelRequire.register("fNP2l", function(module, exports) {
 "use strict";
 module.exports = function unsharp(img, width, height, amount, radius, threshold) {
     if (amount === 0 || radius < 0.5) return;
@@ -654,7 +652,7 @@ module.exports = function unsharp(img, width, height, amount, radius, threshold)
 
 });
 
-parcelRequire.register("3Rekc", function(module, exports) {
+parcelRequire.register("9i7xK", function(module, exports) {
 // This is autogenerated file from math.wasm, don't edit.
 //
 "use strict";
@@ -663,30 +661,30 @@ parcelRequire.register("3Rekc", function(module, exports) {
 });
 
 
-parcelRequire.register("2KSXN", function(module, exports) {
+parcelRequire.register("d3rCt", function(module, exports) {
 "use strict";
 
 
 
 module.exports = {
     name: "resize",
-    fn: (parcelRequire("lbgpG")),
-    wasm_fn: (parcelRequire("7j3Q3")),
-    wasm_src: (parcelRequire("6ANEd"))
+    fn: (parcelRequire("bjRyL")),
+    wasm_fn: (parcelRequire("2eBpB")),
+    wasm_src: (parcelRequire("31LCw"))
 };
 
 });
-parcelRequire.register("lbgpG", function(module, exports) {
+parcelRequire.register("bjRyL", function(module, exports) {
 "use strict";
 
-var $3dcUD = parcelRequire("3dcUD");
+var $LyFeY = parcelRequire("LyFeY");
 
-var $60Qut = parcelRequire("60Qut");
-var $f6b75b6257b99410$require$convolveHor = $60Qut.convolveHor;
-var $f6b75b6257b99410$require$convolveVert = $60Qut.convolveVert;
-var $f6b75b6257b99410$require$convolveHorWithPre = $60Qut.convolveHorWithPre;
-var $f6b75b6257b99410$require$convolveVertWithPre = $60Qut.convolveVertWithPre;
-function $f6b75b6257b99410$var$hasAlpha(src, width, height) {
+var $hCXWq = parcelRequire("hCXWq");
+var $83db03e553f31f80$require$convolveHor = $hCXWq.convolveHor;
+var $83db03e553f31f80$require$convolveVert = $hCXWq.convolveVert;
+var $83db03e553f31f80$require$convolveHorWithPre = $hCXWq.convolveHorWithPre;
+var $83db03e553f31f80$require$convolveVertWithPre = $hCXWq.convolveVertWithPre;
+function $83db03e553f31f80$var$hasAlpha(src, width, height) {
     let ptr = 3, len = width * height * 4 | 0;
     while(ptr < len){
         if (src[ptr] !== 255) return true;
@@ -694,7 +692,7 @@ function $f6b75b6257b99410$var$hasAlpha(src, width, height) {
     }
     return false;
 }
-function $f6b75b6257b99410$var$resetAlpha(dst, width, height) {
+function $83db03e553f31f80$var$resetAlpha(dst, width, height) {
     let ptr = 3, len = width * height * 4 | 0;
     while(ptr < len){
         dst[ptr] = 0xFF;
@@ -713,22 +711,22 @@ module.exports = function resize(options) {
     const offsetY = options.offsetY || 0;
     const dest = options.dest || new Uint8Array(destW * destH * 4);
     const filter = typeof options.filter === "undefined" ? "mks2013" : options.filter;
-    const filtersX = $3dcUD(filter, srcW, destW, scaleX, offsetX), filtersY = $3dcUD(filter, srcH, destH, scaleY, offsetY);
+    const filtersX = $LyFeY(filter, srcW, destW, scaleX, offsetX), filtersY = $LyFeY(filter, srcH, destH, scaleY, offsetY);
     const tmp = new Uint16Array(destW * srcH * 4);
     // Autodetect if alpha channel exists, and use appropriate method
-    if ($f6b75b6257b99410$var$hasAlpha(src, srcW, srcH)) {
-        $f6b75b6257b99410$require$convolveHorWithPre(src, tmp, srcW, srcH, destW, filtersX);
-        $f6b75b6257b99410$require$convolveVertWithPre(tmp, dest, srcH, destW, destH, filtersY);
+    if ($83db03e553f31f80$var$hasAlpha(src, srcW, srcH)) {
+        $83db03e553f31f80$require$convolveHorWithPre(src, tmp, srcW, srcH, destW, filtersX);
+        $83db03e553f31f80$require$convolveVertWithPre(tmp, dest, srcH, destW, destH, filtersY);
     } else {
-        $f6b75b6257b99410$require$convolveHor(src, tmp, srcW, srcH, destW, filtersX);
-        $f6b75b6257b99410$require$convolveVert(tmp, dest, srcH, destW, destH, filtersY);
-        $f6b75b6257b99410$var$resetAlpha(dest, destW, destH);
+        $83db03e553f31f80$require$convolveHor(src, tmp, srcW, srcH, destW, filtersX);
+        $83db03e553f31f80$require$convolveVert(tmp, dest, srcH, destW, destH, filtersY);
+        $83db03e553f31f80$var$resetAlpha(dest, destW, destH);
     }
     return dest;
 };
 
 });
-parcelRequire.register("3dcUD", function(module, exports) {
+parcelRequire.register("LyFeY", function(module, exports) {
 // Calculate convolution filters for each destination point,
 // and pack data to Int16Array:
 //
@@ -740,18 +738,18 @@ parcelRequire.register("3dcUD", function(module, exports) {
 //
 "use strict";
 
-var $5zZT4 = parcelRequire("5zZT4");
+var $2eSbp = parcelRequire("2eSbp");
 // Precision of fixed FP values
-var $256c9a228ec665bf$var$FIXED_FRAC_BITS = 14;
-function $256c9a228ec665bf$var$toFixedPoint(num) {
-    return Math.round(num * ((1 << $256c9a228ec665bf$var$FIXED_FRAC_BITS) - 1));
+var $08ef477b94a5e976$var$FIXED_FRAC_BITS = 14;
+function $08ef477b94a5e976$var$toFixedPoint(num) {
+    return Math.round(num * ((1 << $08ef477b94a5e976$var$FIXED_FRAC_BITS) - 1));
 }
 module.exports = function resizeFilterGen(filter, srcSize, destSize, scale, offset) {
-    var filterFunction = $5zZT4.filter[filter].fn;
+    var filterFunction = $2eSbp.filter[filter].fn;
     var scaleInverted = 1.0 / scale;
     var scaleClamped = Math.min(1.0, scale); // For upscale
     // Filter window (averaging interval), scaled to src image
-    var srcWindow = $5zZT4.filter[filter].win / scaleClamped;
+    var srcWindow = $2eSbp.filter[filter].win / scaleClamped;
     var destPixel, srcPixel, srcFirst, srcLast, filterElementSize, floatFilter, fxpFilter, total, pxl, idx, floatVal, filterTotal, filterVal;
     var leftNotEmpty, rightNotEmpty, filterShift, filterSize;
     var maxFilterElementSize = Math.floor((srcWindow + 1) * 2);
@@ -779,10 +777,10 @@ module.exports = function resizeFilterGen(filter, srcSize, destSize, scale, offs
         for(idx = 0; idx < floatFilter.length; idx++){
             filterVal = floatFilter[idx] / total;
             filterTotal += filterVal;
-            fxpFilter[idx] = $256c9a228ec665bf$var$toFixedPoint(filterVal);
+            fxpFilter[idx] = $08ef477b94a5e976$var$toFixedPoint(filterVal);
         }
         // Compensate normalization error, to minimize brightness drift
-        fxpFilter[destSize >> 1] += $256c9a228ec665bf$var$toFixedPoint(1.0 - filterTotal);
+        fxpFilter[destSize >> 1] += $08ef477b94a5e976$var$toFixedPoint(1.0 - filterTotal);
         //
         // Now pack filter to useable form
         //
@@ -815,14 +813,14 @@ module.exports = function resizeFilterGen(filter, srcSize, destSize, scale, offs
 };
 
 });
-parcelRequire.register("5zZT4", function(module, exports) {
+parcelRequire.register("2eSbp", function(module, exports) {
 // Filter definitions to build tables for
 // resizing convolvers.
 //
 // Presets for quality 0..3. Filter functions + window size
 //
 "use strict";
-const $41003a21599435da$var$filter = {
+const $1a16eb36353fcd33$var$filter = {
     // Nearest neibor
     box: {
         win: 0.5,
@@ -878,7 +876,7 @@ const $41003a21599435da$var$filter = {
     }
 };
 module.exports = {
-    filter: $41003a21599435da$var$filter,
+    filter: $1a16eb36353fcd33$var$filter,
     // Legacy mapping
     f2q: {
         box: 0,
@@ -897,16 +895,16 @@ module.exports = {
 });
 
 
-parcelRequire.register("60Qut", function(module, exports) {
+parcelRequire.register("hCXWq", function(module, exports) {
 // Resize convolvers, pure JS implementation
 //
 "use strict";
 // Precision of fixed FP values
 //var FIXED_FRAC_BITS = 14;
-function $460b75b11af11c35$var$clampTo8(i) {
+function $cd547b5b273558d7$var$clampTo8(i) {
     return i < 0 ? 0 : i > 255 ? 255 : i;
 }
-function $460b75b11af11c35$var$clampNegative(i) {
+function $cd547b5b273558d7$var$clampNegative(i) {
     return i >= 0 ? i : 0;
 }
 // Convolve image data in horizontal direction. Can be used for:
@@ -919,7 +917,7 @@ function $460b75b11af11c35$var$clampNegative(i) {
 // - output is transposed
 // - output resolution is ~15 bits per channel(for better precision).
 //
-function $460b75b11af11c35$var$convolveHor(src, dest, srcW, srcH, destW, filters) {
+function $cd547b5b273558d7$var$convolveHor(src, dest, srcW, srcH, destW, filters) {
     var r, g, b, a;
     var filterPtr, filterShift, filterSize;
     var srcPtr, srcY, destX, filterVal;
@@ -948,10 +946,10 @@ function $460b75b11af11c35$var$convolveHor(src, dest, srcW, srcH, destW, filters
             // Store 15 bits between passes for better precision
             // Instead of shift to 14 (FIXED_FRAC_BITS), shift to 7 only
             //
-            dest[destOffset + 3] = $460b75b11af11c35$var$clampNegative(a >> 7);
-            dest[destOffset + 2] = $460b75b11af11c35$var$clampNegative(b >> 7);
-            dest[destOffset + 1] = $460b75b11af11c35$var$clampNegative(g >> 7);
-            dest[destOffset] = $460b75b11af11c35$var$clampNegative(r >> 7);
+            dest[destOffset + 3] = $cd547b5b273558d7$var$clampNegative(a >> 7);
+            dest[destOffset + 2] = $cd547b5b273558d7$var$clampNegative(b >> 7);
+            dest[destOffset + 1] = $cd547b5b273558d7$var$clampNegative(g >> 7);
+            dest[destOffset] = $cd547b5b273558d7$var$clampNegative(r >> 7);
             destOffset = destOffset + srcH * 4 | 0;
         }
         destOffset = (srcY + 1) * 4 | 0;
@@ -960,7 +958,7 @@ function $460b75b11af11c35$var$convolveHor(src, dest, srcW, srcH, destW, filters
 }
 // Supplementary method for `convolveHor()`
 //
-function $460b75b11af11c35$var$convolveVert(src, dest, srcW, srcH, destW, filters) {
+function $cd547b5b273558d7$var$convolveVert(src, dest, srcW, srcH, destW, filters) {
     var r, g, b, a;
     var filterPtr, filterShift, filterSize;
     var srcPtr, srcY, destX, filterVal;
@@ -993,10 +991,10 @@ function $460b75b11af11c35$var$convolveVert(src, dest, srcW, srcH, destW, filter
             a >>= 7;
             // Bring this value back in range + round result.
             //
-            dest[destOffset + 3] = $460b75b11af11c35$var$clampTo8(a + 8192 >> 14);
-            dest[destOffset + 2] = $460b75b11af11c35$var$clampTo8(b + 8192 >> 14);
-            dest[destOffset + 1] = $460b75b11af11c35$var$clampTo8(g + 8192 >> 14);
-            dest[destOffset] = $460b75b11af11c35$var$clampTo8(r + 8192 >> 14);
+            dest[destOffset + 3] = $cd547b5b273558d7$var$clampTo8(a + 8192 >> 14);
+            dest[destOffset + 2] = $cd547b5b273558d7$var$clampTo8(b + 8192 >> 14);
+            dest[destOffset + 1] = $cd547b5b273558d7$var$clampTo8(g + 8192 >> 14);
+            dest[destOffset] = $cd547b5b273558d7$var$clampTo8(r + 8192 >> 14);
             destOffset = destOffset + srcH * 4 | 0;
         }
         destOffset = (srcY + 1) * 4 | 0;
@@ -1010,7 +1008,7 @@ function $460b75b11af11c35$var$convolveVert(src, dest, srcW, srcH, destW, filter
 //
 // For images without alpha channel this method is slower than `convolveHor()`
 //
-function $460b75b11af11c35$var$convolveHorWithPre(src, dest, srcW, srcH, destW, filters) {
+function $cd547b5b273558d7$var$convolveHorWithPre(src, dest, srcW, srcH, destW, filters) {
     var r, g, b, a, alpha;
     var filterPtr, filterShift, filterSize;
     var srcPtr, srcY, destX, filterVal;
@@ -1045,10 +1043,10 @@ function $460b75b11af11c35$var$convolveHorWithPre(src, dest, srcW, srcH, destW, 
             // Store 15 bits between passes for better precision
             // Instead of shift to 14 (FIXED_FRAC_BITS), shift to 7 only
             //
-            dest[destOffset + 3] = $460b75b11af11c35$var$clampNegative(a >> 7);
-            dest[destOffset + 2] = $460b75b11af11c35$var$clampNegative(b >> 7);
-            dest[destOffset + 1] = $460b75b11af11c35$var$clampNegative(g >> 7);
-            dest[destOffset] = $460b75b11af11c35$var$clampNegative(r >> 7);
+            dest[destOffset + 3] = $cd547b5b273558d7$var$clampNegative(a >> 7);
+            dest[destOffset + 2] = $cd547b5b273558d7$var$clampNegative(b >> 7);
+            dest[destOffset + 1] = $cd547b5b273558d7$var$clampNegative(g >> 7);
+            dest[destOffset] = $cd547b5b273558d7$var$clampNegative(r >> 7);
             destOffset = destOffset + srcH * 4 | 0;
         }
         destOffset = (srcY + 1) * 4 | 0;
@@ -1057,7 +1055,7 @@ function $460b75b11af11c35$var$convolveHorWithPre(src, dest, srcW, srcH, destW, 
 }
 // Supplementary method for `convolveHorWithPre()`
 //
-function $460b75b11af11c35$var$convolveVertWithPre(src, dest, srcW, srcH, destW, filters) {
+function $cd547b5b273558d7$var$convolveVertWithPre(src, dest, srcW, srcH, destW, filters) {
     var r, g, b, a;
     var filterPtr, filterShift, filterSize;
     var srcPtr, srcY, destX, filterVal;
@@ -1089,7 +1087,7 @@ function $460b75b11af11c35$var$convolveVertWithPre(src, dest, srcW, srcH, destW,
             b >>= 7;
             a >>= 7;
             // Un-premultiply
-            a = $460b75b11af11c35$var$clampTo8(a + 8192 >> 14);
+            a = $cd547b5b273558d7$var$clampTo8(a + 8192 >> 14);
             if (a > 0) {
                 r = r * 255 / a | 0;
                 g = g * 255 / a | 0;
@@ -1099,9 +1097,9 @@ function $460b75b11af11c35$var$convolveVertWithPre(src, dest, srcW, srcH, destW,
             // Shift value = FIXED_FRAC_BITS + 7
             //
             dest[destOffset + 3] = a;
-            dest[destOffset + 2] = $460b75b11af11c35$var$clampTo8(b + 8192 >> 14);
-            dest[destOffset + 1] = $460b75b11af11c35$var$clampTo8(g + 8192 >> 14);
-            dest[destOffset] = $460b75b11af11c35$var$clampTo8(r + 8192 >> 14);
+            dest[destOffset + 2] = $cd547b5b273558d7$var$clampTo8(b + 8192 >> 14);
+            dest[destOffset + 1] = $cd547b5b273558d7$var$clampTo8(g + 8192 >> 14);
+            dest[destOffset] = $cd547b5b273558d7$var$clampTo8(r + 8192 >> 14);
             destOffset = destOffset + srcH * 4 | 0;
         }
         destOffset = (srcY + 1) * 4 | 0;
@@ -1109,20 +1107,20 @@ function $460b75b11af11c35$var$convolveVertWithPre(src, dest, srcW, srcH, destW,
     }
 }
 module.exports = {
-    convolveHor: $460b75b11af11c35$var$convolveHor,
-    convolveVert: $460b75b11af11c35$var$convolveVert,
-    convolveHorWithPre: $460b75b11af11c35$var$convolveHorWithPre,
-    convolveVertWithPre: $460b75b11af11c35$var$convolveVertWithPre
+    convolveHor: $cd547b5b273558d7$var$convolveHor,
+    convolveVert: $cd547b5b273558d7$var$convolveVert,
+    convolveHorWithPre: $cd547b5b273558d7$var$convolveHorWithPre,
+    convolveVertWithPre: $cd547b5b273558d7$var$convolveVertWithPre
 };
 
 });
 
 
-parcelRequire.register("7j3Q3", function(module, exports) {
+parcelRequire.register("2eBpB", function(module, exports) {
 "use strict";
 
-var $3dcUD = parcelRequire("3dcUD");
-function $551d4906d96953d9$var$hasAlpha(src, width, height) {
+var $LyFeY = parcelRequire("LyFeY");
+function $1a09e8d1929d8994$var$hasAlpha(src, width, height) {
     let ptr = 3, len = width * height * 4 | 0;
     while(ptr < len){
         if (src[ptr] !== 255) return true;
@@ -1130,29 +1128,29 @@ function $551d4906d96953d9$var$hasAlpha(src, width, height) {
     }
     return false;
 }
-function $551d4906d96953d9$var$resetAlpha(dst, width, height) {
+function $1a09e8d1929d8994$var$resetAlpha(dst, width, height) {
     let ptr = 3, len = width * height * 4 | 0;
     while(ptr < len){
         dst[ptr] = 0xFF;
         ptr = ptr + 4 | 0;
     }
 }
-function $551d4906d96953d9$var$asUint8Array(src) {
+function $1a09e8d1929d8994$var$asUint8Array(src) {
     return new Uint8Array(src.buffer, 0, src.byteLength);
 }
-let $551d4906d96953d9$var$IS_LE = true;
+let $1a09e8d1929d8994$var$IS_LE = true;
 // should not crash everything on module load in old browsers
 try {
-    $551d4906d96953d9$var$IS_LE = new Uint32Array(new Uint8Array([
+    $1a09e8d1929d8994$var$IS_LE = new Uint32Array(new Uint8Array([
         1,
         0,
         0,
         0
     ]).buffer)[0] === 1;
 } catch (__) {}
-function $551d4906d96953d9$var$copyInt16asLE(src, target, target_offset) {
-    if ($551d4906d96953d9$var$IS_LE) {
-        target.set($551d4906d96953d9$var$asUint8Array(src), target_offset);
+function $1a09e8d1929d8994$var$copyInt16asLE(src, target, target_offset) {
+    if ($1a09e8d1929d8994$var$IS_LE) {
+        target.set($1a09e8d1929d8994$var$asUint8Array(src), target_offset);
         return;
     }
     for(let ptr = target_offset, i = 0; i < src.length; i++){
@@ -1173,7 +1171,7 @@ module.exports = function resize_wasm(options) {
     const offsetY = options.offsetY || 0.0;
     const dest = options.dest || new Uint8Array(destW * destH * 4);
     const filter = typeof options.filter === "undefined" ? "mks2013" : options.filter;
-    const filtersX = $3dcUD(filter, srcW, destW, scaleX, offsetX), filtersY = $3dcUD(filter, srcH, destH, scaleY, offsetY);
+    const filtersX = $LyFeY(filter, srcW, destW, scaleX, offsetX), filtersY = $LyFeY(filter, srcH, destH, scaleY, offsetY);
     // destination is 0 too.
     const src_offset = 0;
     const src_size = Math.max(src.byteLength, dest.byteLength);
@@ -1194,15 +1192,15 @@ module.exports = function resize_wasm(options) {
     mem32.set(src32);
     // We should guarantee LE bytes order. Filters are not big, so
     // speed difference is not significant vs direct .set()
-    $551d4906d96953d9$var$copyInt16asLE(filtersX, mem, filtersX_offset);
-    $551d4906d96953d9$var$copyInt16asLE(filtersY, mem, filtersY_offset);
+    $1a09e8d1929d8994$var$copyInt16asLE(filtersX, mem, filtersX_offset);
+    $1a09e8d1929d8994$var$copyInt16asLE(filtersY, mem, filtersY_offset);
     // Now call webassembly method
     // emsdk does method names with '_'
     const fn = instance.exports.convolveHV || instance.exports._convolveHV;
-    if ($551d4906d96953d9$var$hasAlpha(src, srcW, srcH)) fn(filtersX_offset, filtersY_offset, tmp_offset, srcW, srcH, destW, destH, 1);
+    if ($1a09e8d1929d8994$var$hasAlpha(src, srcW, srcH)) fn(filtersX_offset, filtersY_offset, tmp_offset, srcW, srcH, destW, destH, 1);
     else {
         fn(filtersX_offset, filtersY_offset, tmp_offset, srcW, srcH, destW, destH, 0);
-        $551d4906d96953d9$var$resetAlpha(dest, destW, destH);
+        $1a09e8d1929d8994$var$resetAlpha(dest, destW, destH);
     }
     //
     // Copy data back to typed array
@@ -1215,7 +1213,7 @@ module.exports = function resize_wasm(options) {
 
 });
 
-parcelRequire.register("6ANEd", function(module, exports) {
+parcelRequire.register("31LCw", function(module, exports) {
 // This is autogenerated file from math.wasm, don't edit.
 //
 "use strict";
@@ -1225,36 +1223,35 @@ parcelRequire.register("6ANEd", function(module, exports) {
 
 
 
-var $6c221ac32ca8caf2$exports = {};
-var $60ae514bd74eb968$exports = {};
+var $a81bfcfc0e69bec7$exports = {};
 
-$parcel$export($60ae514bd74eb968$exports, "createCanvas", function () { return $60ae514bd74eb968$export$cd3d1f114b139967; }, function (v) { return $60ae514bd74eb968$export$cd3d1f114b139967 = v; });
-/* globals document, ImageData */ var $60ae514bd74eb968$export$807478983c0c2e;
-var $60ae514bd74eb968$export$cd3d1f114b139967;
-var $60ae514bd74eb968$export$ad40c38a6f41c9cf;
-var $60ae514bd74eb968$export$fe58198efe02b173;
-var $26c1e63acc1514f9$exports = {};
+$parcel$export($a81bfcfc0e69bec7$exports, "createCanvas", function () { return $a81bfcfc0e69bec7$export$cd3d1f114b139967; }, function (v) { return $a81bfcfc0e69bec7$export$cd3d1f114b139967 = v; });
+/* globals document, ImageData */ var $a81bfcfc0e69bec7$export$807478983c0c2e;
+var $a81bfcfc0e69bec7$export$cd3d1f114b139967;
+var $a81bfcfc0e69bec7$export$ad40c38a6f41c9cf;
+var $a81bfcfc0e69bec7$export$fe58198efe02b173;
+var $0613a1f4e940e3d4$exports = {};
 "use strict";
 /**
  * Font RegExp helpers.
- */ const $26c1e63acc1514f9$var$weights = "bold|bolder|lighter|[1-9]00";
-const $26c1e63acc1514f9$var$styles = "italic|oblique";
-const $26c1e63acc1514f9$var$variants = "small-caps";
-const $26c1e63acc1514f9$var$stretches = "ultra-condensed|extra-condensed|condensed|semi-condensed|semi-expanded|expanded|extra-expanded|ultra-expanded";
-const $26c1e63acc1514f9$var$units = "px|pt|pc|in|cm|mm|%|em|ex|ch|rem|q";
-const $26c1e63acc1514f9$var$string = "'([^']+)'|\"([^\"]+)\"|[\\w\\s-]+";
+ */ const $0613a1f4e940e3d4$var$weights = "bold|bolder|lighter|[1-9]00";
+const $0613a1f4e940e3d4$var$styles = "italic|oblique";
+const $0613a1f4e940e3d4$var$variants = "small-caps";
+const $0613a1f4e940e3d4$var$stretches = "ultra-condensed|extra-condensed|condensed|semi-condensed|semi-expanded|expanded|extra-expanded|ultra-expanded";
+const $0613a1f4e940e3d4$var$units = "px|pt|pc|in|cm|mm|%|em|ex|ch|rem|q";
+const $0613a1f4e940e3d4$var$string = "'([^']+)'|\"([^\"]+)\"|[\\w\\s-]+";
 // [ [ <‘font-style’> || <font-variant-css21> || <‘font-weight’> || <‘font-stretch’> ]?
 //    <‘font-size’> [ / <‘line-height’> ]? <‘font-family’> ]
 // https://drafts.csswg.org/css-fonts-3/#font-prop
-const $26c1e63acc1514f9$var$weightRe = new RegExp(`(${$26c1e63acc1514f9$var$weights}) +`, "i");
-const $26c1e63acc1514f9$var$styleRe = new RegExp(`(${$26c1e63acc1514f9$var$styles}) +`, "i");
-const $26c1e63acc1514f9$var$variantRe = new RegExp(`(${$26c1e63acc1514f9$var$variants}) +`, "i");
-const $26c1e63acc1514f9$var$stretchRe = new RegExp(`(${$26c1e63acc1514f9$var$stretches}) +`, "i");
-const $26c1e63acc1514f9$var$sizeFamilyRe = new RegExp(`([\\d\\.]+)(${$26c1e63acc1514f9$var$units}) *((?:${$26c1e63acc1514f9$var$string})( *, *(?:${$26c1e63acc1514f9$var$string}))*)`);
+const $0613a1f4e940e3d4$var$weightRe = new RegExp(`(${$0613a1f4e940e3d4$var$weights}) +`, "i");
+const $0613a1f4e940e3d4$var$styleRe = new RegExp(`(${$0613a1f4e940e3d4$var$styles}) +`, "i");
+const $0613a1f4e940e3d4$var$variantRe = new RegExp(`(${$0613a1f4e940e3d4$var$variants}) +`, "i");
+const $0613a1f4e940e3d4$var$stretchRe = new RegExp(`(${$0613a1f4e940e3d4$var$stretches}) +`, "i");
+const $0613a1f4e940e3d4$var$sizeFamilyRe = new RegExp(`([\\d\\.]+)(${$0613a1f4e940e3d4$var$units}) *((?:${$0613a1f4e940e3d4$var$string})( *, *(?:${$0613a1f4e940e3d4$var$string}))*)`);
 /**
  * Cache font parsing.
- */ const $26c1e63acc1514f9$var$cache = {};
-const $26c1e63acc1514f9$var$defaultHeight = 16 // pt, common browser default
+ */ const $0613a1f4e940e3d4$var$cache = {};
+const $0613a1f4e940e3d4$var$defaultHeight = 16 // pt, common browser default
 ;
 /**
  * Parse font `str`.
@@ -1263,11 +1260,11 @@ const $26c1e63acc1514f9$var$defaultHeight = 16 // pt, common browser default
  * @return {Object} Parsed font. `size` is in device units. `unit` is the unit
  *   appearing in the input string.
  * @api private
- */ $26c1e63acc1514f9$exports = (str)=>{
+ */ $0613a1f4e940e3d4$exports = (str)=>{
     // Cached
-    if ($26c1e63acc1514f9$var$cache[str]) return $26c1e63acc1514f9$var$cache[str];
+    if ($0613a1f4e940e3d4$var$cache[str]) return $0613a1f4e940e3d4$var$cache[str];
     // Try for required properties first.
-    const sizeFamily = $26c1e63acc1514f9$var$sizeFamilyRe.exec(str);
+    const sizeFamily = $0613a1f4e940e3d4$var$sizeFamilyRe.exec(str);
     if (!sizeFamily) return; // invalid
     // Default values and required properties
     const font = {
@@ -1283,10 +1280,10 @@ const $26c1e63acc1514f9$var$defaultHeight = 16 // pt, common browser default
     let weight, style, variant, stretch;
     // Stop search at `sizeFamily.index`
     const substr = str.substring(0, sizeFamily.index);
-    if (weight = $26c1e63acc1514f9$var$weightRe.exec(substr)) font.weight = weight[1];
-    if (style = $26c1e63acc1514f9$var$styleRe.exec(substr)) font.style = style[1];
-    if (variant = $26c1e63acc1514f9$var$variantRe.exec(substr)) font.variant = variant[1];
-    if (stretch = $26c1e63acc1514f9$var$stretchRe.exec(substr)) font.stretch = stretch[1];
+    if (weight = $0613a1f4e940e3d4$var$weightRe.exec(substr)) font.weight = weight[1];
+    if (style = $0613a1f4e940e3d4$var$styleRe.exec(substr)) font.style = style[1];
+    if (variant = $0613a1f4e940e3d4$var$variantRe.exec(substr)) font.variant = variant[1];
+    if (stretch = $0613a1f4e940e3d4$var$stretchRe.exec(substr)) font.stretch = stretch[1];
     // Convert to device units. (`font.unit` is the original unit)
     // TODO: ch, ex
     switch(font.unit){
@@ -1309,24 +1306,24 @@ const $26c1e63acc1514f9$var$defaultHeight = 16 // pt, common browser default
             break;
         case "em":
         case "rem":
-            font.size *= $26c1e63acc1514f9$var$defaultHeight / 0.75;
+            font.size *= $0613a1f4e940e3d4$var$defaultHeight / 0.75;
             break;
         case "q":
             font.size *= 96 / 25.4 / 4;
             break;
     }
-    return $26c1e63acc1514f9$var$cache[str] = font;
+    return $0613a1f4e940e3d4$var$cache[str] = font;
 };
 
 
-$60ae514bd74eb968$export$807478983c0c2e = $26c1e63acc1514f9$exports;
-$60ae514bd74eb968$export$cd3d1f114b139967 = function(width, height) {
+$a81bfcfc0e69bec7$export$807478983c0c2e = $0613a1f4e940e3d4$exports;
+$a81bfcfc0e69bec7$export$cd3d1f114b139967 = function(width, height) {
     return Object.assign(document.createElement("canvas"), {
         width: width,
         height: height
     });
 };
-$60ae514bd74eb968$export$ad40c38a6f41c9cf = function(array, width, height) {
+$a81bfcfc0e69bec7$export$ad40c38a6f41c9cf = function(array, width, height) {
     // Browser implementation of ImageData looks at the number of arguments passed
     switch(arguments.length){
         case 0:
@@ -1339,7 +1336,7 @@ $60ae514bd74eb968$export$ad40c38a6f41c9cf = function(array, width, height) {
             return new ImageData(array, width, height);
     }
 };
-$60ae514bd74eb968$export$fe58198efe02b173 = function(src, options) {
+$a81bfcfc0e69bec7$export$fe58198efe02b173 = function(src, options) {
     return new Promise(function(resolve, reject) {
         const image = Object.assign(document.createElement("img"), options);
         function cleanup() {
@@ -1359,17 +1356,17 @@ $60ae514bd74eb968$export$fe58198efe02b173 = function(src, options) {
 };
 
 
-var $ed498a97b604fad5$exports = {};
+var $de7d9ffa4a2b1ea0$exports = {};
 "use strict";
 
-var $fQtfM = parcelRequire("fQtfM");
+var $3TIyg = parcelRequire("3TIyg");
 
 
-var $19T8x = parcelRequire("19T8x");
-var $94c4dfcdb6943aaf$exports = {};
+var $iX7ak = parcelRequire("iX7ak");
+var $b1604168657025ed$exports = {};
 "use strict";
-const $94c4dfcdb6943aaf$var$GC_INTERVAL = 100;
-function $94c4dfcdb6943aaf$var$Pool(create, idle) {
+const $b1604168657025ed$var$GC_INTERVAL = 100;
+function $b1604168657025ed$var$Pool(create, idle) {
     this.create = create;
     this.available = [];
     this.acquired = {};
@@ -1377,7 +1374,7 @@ function $94c4dfcdb6943aaf$var$Pool(create, idle) {
     this.timeoutId = 0;
     this.idle = idle || 2000;
 }
-$94c4dfcdb6943aaf$var$Pool.prototype.acquire = function() {
+$b1604168657025ed$var$Pool.prototype.acquire = function() {
     let resource;
     if (this.available.length !== 0) resource = this.available.pop();
     else {
@@ -1388,13 +1385,13 @@ $94c4dfcdb6943aaf$var$Pool.prototype.acquire = function() {
     this.acquired[resource.id] = resource;
     return resource;
 };
-$94c4dfcdb6943aaf$var$Pool.prototype.release = function(resource) {
+$b1604168657025ed$var$Pool.prototype.release = function(resource) {
     delete this.acquired[resource.id];
     resource.lastUsed = Date.now();
     this.available.push(resource);
-    if (this.timeoutId === 0) this.timeoutId = setTimeout(()=>this.gc(), $94c4dfcdb6943aaf$var$GC_INTERVAL);
+    if (this.timeoutId === 0) this.timeoutId = setTimeout(()=>this.gc(), $b1604168657025ed$var$GC_INTERVAL);
 };
-$94c4dfcdb6943aaf$var$Pool.prototype.gc = function() {
+$b1604168657025ed$var$Pool.prototype.gc = function() {
     const now = Date.now();
     this.available = this.available.filter((resource)=>{
         if (now - resource.lastUsed > this.idle) {
@@ -1403,42 +1400,42 @@ $94c4dfcdb6943aaf$var$Pool.prototype.gc = function() {
         }
         return true;
     });
-    if (this.available.length !== 0) this.timeoutId = setTimeout(()=>this.gc(), $94c4dfcdb6943aaf$var$GC_INTERVAL);
+    if (this.available.length !== 0) this.timeoutId = setTimeout(()=>this.gc(), $b1604168657025ed$var$GC_INTERVAL);
     else this.timeoutId = 0;
 };
-$94c4dfcdb6943aaf$exports = $94c4dfcdb6943aaf$var$Pool;
+$b1604168657025ed$exports = $b1604168657025ed$var$Pool;
 
 
-var $6bdc296e5fb8780b$export$4b05d74c82e4c4d2;
-var $6bdc296e5fb8780b$export$fb85bc5d6d9ef19b;
-var $6bdc296e5fb8780b$export$4c394cd787f4a4b7;
-var $6bdc296e5fb8780b$export$28da6b3f303613d5;
-var $6bdc296e5fb8780b$export$adfbffb03f386655;
-var $6bdc296e5fb8780b$export$7f9fc0f6196598f6;
-var $6bdc296e5fb8780b$export$6c0e957e50473ced;
+var $b70107771ce832c8$export$4b05d74c82e4c4d2;
+var $b70107771ce832c8$export$fb85bc5d6d9ef19b;
+var $b70107771ce832c8$export$4c394cd787f4a4b7;
+var $b70107771ce832c8$export$28da6b3f303613d5;
+var $b70107771ce832c8$export$adfbffb03f386655;
+var $b70107771ce832c8$export$7f9fc0f6196598f6;
+var $b70107771ce832c8$export$6c0e957e50473ced;
 // Check if canvas.getContext('2d').getImageData can be used,
 // FireFox randomizes the output of that function in `privacy.resistFingerprinting` mode
-var $6bdc296e5fb8780b$export$db38455243ada99e;
+var $b70107771ce832c8$export$db38455243ada99e;
 // Check if createImageBitmap(img, sx, sy, sw, sh) signature works correctly
 // with JPEG images oriented with Exif;
 // https://bugs.chromium.org/p/chromium/issues/detail?id=1220671
 // TODO: remove after it's fixed in chrome for at least 2 releases
-var $6bdc296e5fb8780b$export$aff86d9eea48781e;
+var $b70107771ce832c8$export$aff86d9eea48781e;
 "use strict";
-function $6bdc296e5fb8780b$var$objClass(obj) {
+function $b70107771ce832c8$var$objClass(obj) {
     return Object.prototype.toString.call(obj);
 }
-$6bdc296e5fb8780b$export$4b05d74c82e4c4d2 = function isCanvas(element) {
-    let cname = $6bdc296e5fb8780b$var$objClass(element);
+$b70107771ce832c8$export$4b05d74c82e4c4d2 = function isCanvas(element) {
+    let cname = $b70107771ce832c8$var$objClass(element);
     return cname === "[object HTMLCanvasElement]" /* browser */  || cname === "[object OffscreenCanvas]" || cname === "[object Canvas]" /* node-canvas */ ;
 };
-$6bdc296e5fb8780b$export$fb85bc5d6d9ef19b = function isImage(element) {
-    return $6bdc296e5fb8780b$var$objClass(element) === "[object HTMLImageElement]";
+$b70107771ce832c8$export$fb85bc5d6d9ef19b = function isImage(element) {
+    return $b70107771ce832c8$var$objClass(element) === "[object HTMLImageElement]";
 };
-$6bdc296e5fb8780b$export$4c394cd787f4a4b7 = function isImageBitmap(element) {
-    return $6bdc296e5fb8780b$var$objClass(element) === "[object ImageBitmap]";
+$b70107771ce832c8$export$4c394cd787f4a4b7 = function isImageBitmap(element) {
+    return $b70107771ce832c8$var$objClass(element) === "[object ImageBitmap]";
 };
-$6bdc296e5fb8780b$export$28da6b3f303613d5 = function limiter(concurrency) {
+$b70107771ce832c8$export$28da6b3f303613d5 = function limiter(concurrency) {
     let active = 0, queue = [];
     function roll() {
         if (active < concurrency && queue.length) {
@@ -1463,7 +1460,7 @@ $6bdc296e5fb8780b$export$28da6b3f303613d5 = function limiter(concurrency) {
         });
     };
 };
-$6bdc296e5fb8780b$export$adfbffb03f386655 = function cib_quality_name(num) {
+$b70107771ce832c8$export$adfbffb03f386655 = function cib_quality_name(num) {
     switch(num){
         case 0:
             return "pixelated";
@@ -1474,7 +1471,7 @@ $6bdc296e5fb8780b$export$adfbffb03f386655 = function cib_quality_name(num) {
     }
     return "high";
 };
-$6bdc296e5fb8780b$export$7f9fc0f6196598f6 = function cib_support(createCanvas) {
+$b70107771ce832c8$export$7f9fc0f6196598f6 = function cib_support(createCanvas) {
     return Promise.resolve().then(()=>{
         if (typeof createImageBitmap === "undefined") return false;
         let c = createCanvas(100, 100);
@@ -1497,7 +1494,7 @@ $6bdc296e5fb8780b$export$7f9fc0f6196598f6 = function cib_support(createCanvas) {
         });
     }).catch(()=>false);
 };
-$6bdc296e5fb8780b$export$6c0e957e50473ced = function worker_offscreen_canvas_support() {
+$b70107771ce832c8$export$6c0e957e50473ced = function worker_offscreen_canvas_support() {
     return new Promise((resolve, reject)=>{
         if (typeof OffscreenCanvas === "undefined") {
             // if OffscreenCanvas is present, we assume browser supports Worker and built-in Promise as well
@@ -1524,7 +1521,7 @@ $6bdc296e5fb8780b$export$6c0e957e50473ced = function worker_offscreen_canvas_sup
         w.onerror = reject;
     }).then((result)=>result, ()=>false);
 };
-$6bdc296e5fb8780b$export$db38455243ada99e = function can_use_canvas(createCanvas) {
+$b70107771ce832c8$export$db38455243ada99e = function can_use_canvas(createCanvas) {
     let usable = false;
     try {
         let canvas = createCanvas(2, 1);
@@ -1545,7 +1542,7 @@ $6bdc296e5fb8780b$export$db38455243ada99e = function can_use_canvas(createCanvas
     } catch (err) {}
     return usable;
 };
-$6bdc296e5fb8780b$export$aff86d9eea48781e = function cib_can_use_region() {
+$b70107771ce832c8$export$aff86d9eea48781e = function cib_can_use_region() {
     return new Promise((resolve)=>{
         // `Image` check required for use in `ServiceWorker`
         if (typeof Image === "undefined" || typeof createImageBitmap === "undefined") {
@@ -1565,12 +1562,12 @@ $6bdc296e5fb8780b$export$aff86d9eea48781e = function cib_can_use_region() {
 };
 
 
-var $543b1585e1d06a1b$exports = {};
+var $7eceeb6716911321$exports = {};
 // Web Worker wrapper for image resize function
 "use strict";
 
-$543b1585e1d06a1b$exports = function() {
-    const MathLib = (parcelRequire("19T8x"));
+$7eceeb6716911321$exports = function() {
+    const MathLib = (parcelRequire("iX7ak"));
     let mathLib;
     /* eslint-disable no-undef */ onmessage = function(ev) {
         let tileOpts = ev.data.opts;
@@ -1613,7 +1610,7 @@ $543b1585e1d06a1b$exports = function() {
 };
 
 
-var $3e156945344d4dd4$exports = {};
+var $63ccf9a0102f59a6$exports = {};
 // Add intermediate resizing steps when scaling down by a very large factor.
 //
 // For example, when resizing 10000x10000 down to 10x10, it'll resize it to
@@ -1629,13 +1626,13 @@ var $3e156945344d4dd4$exports = {};
 "use strict";
 // min size = 0 results in infinite loop,
 // min size = 1 can consume large amount of memory
-const $3e156945344d4dd4$var$MIN_INNER_TILE_SIZE = 2;
-$3e156945344d4dd4$exports = function createStages(fromWidth, fromHeight, toWidth, toHeight, srcTileSize, destTileBorder) {
+const $63ccf9a0102f59a6$var$MIN_INNER_TILE_SIZE = 2;
+$63ccf9a0102f59a6$exports = function createStages(fromWidth, fromHeight, toWidth, toHeight, srcTileSize, destTileBorder) {
     let scaleX = toWidth / fromWidth;
     let scaleY = toHeight / fromHeight;
     // derived from createRegions equation:
     // innerTileWidth = pixelFloor(srcTileSize * scaleX) - 2 * destTileBorder;
-    let minScale = (2 * destTileBorder + $3e156945344d4dd4$var$MIN_INNER_TILE_SIZE + 1) / srcTileSize;
+    let minScale = (2 * destTileBorder + $63ccf9a0102f59a6$var$MIN_INNER_TILE_SIZE + 1) / srcTileSize;
     // refuse to scale image multiple times by less than twice each time,
     // it could only happen because of invalid options
     if (minScale > 0.5) return [
@@ -1666,7 +1663,7 @@ $3e156945344d4dd4$exports = function createStages(fromWidth, fromHeight, toWidth
 };
 
 
-var $9fdb8dda61998012$exports = {};
+var $d1efe991c365fcf6$exports = {};
 // Split original image into multiple 1024x1024 chunks to reduce memory usage
 // (images have to be unpacked into typed arrays for resizing) and allow
 // parallel processing of multiple tiles at a time.
@@ -1678,22 +1675,22 @@ var $9fdb8dda61998012$exports = {};
  * Those errors can cause undesired increments/decrements of sizes and offsets:
  * Math.ceil(36 / (36 / 500)) = 501
  * pixelCeil(36 / (36 / 500)) = 500
- */ var $9fdb8dda61998012$var$PIXEL_EPSILON = 1e-5;
-function $9fdb8dda61998012$var$pixelFloor(x) {
+ */ var $d1efe991c365fcf6$var$PIXEL_EPSILON = 1e-5;
+function $d1efe991c365fcf6$var$pixelFloor(x) {
     var nearest = Math.round(x);
-    if (Math.abs(x - nearest) < $9fdb8dda61998012$var$PIXEL_EPSILON) return nearest;
+    if (Math.abs(x - nearest) < $d1efe991c365fcf6$var$PIXEL_EPSILON) return nearest;
     return Math.floor(x);
 }
-function $9fdb8dda61998012$var$pixelCeil(x) {
+function $d1efe991c365fcf6$var$pixelCeil(x) {
     var nearest = Math.round(x);
-    if (Math.abs(x - nearest) < $9fdb8dda61998012$var$PIXEL_EPSILON) return nearest;
+    if (Math.abs(x - nearest) < $d1efe991c365fcf6$var$PIXEL_EPSILON) return nearest;
     return Math.ceil(x);
 }
-$9fdb8dda61998012$exports = function createRegions(options) {
+$d1efe991c365fcf6$exports = function createRegions(options) {
     var scaleX = options.toWidth / options.width;
     var scaleY = options.toHeight / options.height;
-    var innerTileWidth = $9fdb8dda61998012$var$pixelFloor(options.srcTileSize * scaleX) - 2 * options.destTileBorder;
-    var innerTileHeight = $9fdb8dda61998012$var$pixelFloor(options.srcTileSize * scaleY) - 2 * options.destTileBorder;
+    var innerTileWidth = $d1efe991c365fcf6$var$pixelFloor(options.srcTileSize * scaleX) - 2 * options.destTileBorder;
+    var innerTileHeight = $d1efe991c365fcf6$var$pixelFloor(options.srcTileSize * scaleY) - 2 * options.destTileBorder;
     // prevent infinite loop, this should never happen
     if (innerTileWidth < 1 || innerTileHeight < 1) throw new Error("Internal error in pica: target tile width/height is too small.");
     var x, y;
@@ -1720,14 +1717,14 @@ $9fdb8dda61998012$exports = function createRegions(options) {
             toInnerY: innerY,
             toInnerWidth: innerTileWidth,
             toInnerHeight: innerTileHeight,
-            offsetX: x / scaleX - $9fdb8dda61998012$var$pixelFloor(x / scaleX),
-            offsetY: y / scaleY - $9fdb8dda61998012$var$pixelFloor(y / scaleY),
+            offsetX: x / scaleX - $d1efe991c365fcf6$var$pixelFloor(x / scaleX),
+            offsetY: y / scaleY - $d1efe991c365fcf6$var$pixelFloor(y / scaleY),
             scaleX: scaleX,
             scaleY: scaleY,
-            x: $9fdb8dda61998012$var$pixelFloor(x / scaleX),
-            y: $9fdb8dda61998012$var$pixelFloor(y / scaleY),
-            width: $9fdb8dda61998012$var$pixelCeil(toTileWidth / scaleX),
-            height: $9fdb8dda61998012$var$pixelCeil(toTileHeight / scaleY)
+            x: $d1efe991c365fcf6$var$pixelFloor(x / scaleX),
+            y: $d1efe991c365fcf6$var$pixelFloor(y / scaleY),
+            width: $d1efe991c365fcf6$var$pixelCeil(toTileWidth / scaleX),
+            height: $d1efe991c365fcf6$var$pixelCeil(toTileHeight / scaleY)
         };
         tiles.push(tile);
     }
@@ -1736,19 +1733,19 @@ $9fdb8dda61998012$exports = function createRegions(options) {
 
 
 
-var $5zZT4 = parcelRequire("5zZT4");
+var $2eSbp = parcelRequire("2eSbp");
 // Deduplicate pools & limiters with the same configs
 // when user creates multiple pica instances.
-const $ed498a97b604fad5$var$singletones = {};
-let $ed498a97b604fad5$var$NEED_SAFARI_FIX = false;
+const $de7d9ffa4a2b1ea0$var$singletones = {};
+let $de7d9ffa4a2b1ea0$var$NEED_SAFARI_FIX = false;
 try {
-    if (typeof navigator !== "undefined" && navigator.userAgent) $ed498a97b604fad5$var$NEED_SAFARI_FIX = navigator.userAgent.indexOf("Safari") >= 0;
+    if (typeof navigator !== "undefined" && navigator.userAgent) $de7d9ffa4a2b1ea0$var$NEED_SAFARI_FIX = navigator.userAgent.indexOf("Safari") >= 0;
 } catch (e) {}
-let $ed498a97b604fad5$var$concurrency = 1;
-if (typeof navigator !== "undefined") $ed498a97b604fad5$var$concurrency = Math.min(navigator.hardwareConcurrency || 1, 4);
-const $ed498a97b604fad5$var$DEFAULT_PICA_OPTS = {
+let $de7d9ffa4a2b1ea0$var$concurrency = 1;
+if (typeof navigator !== "undefined") $de7d9ffa4a2b1ea0$var$concurrency = Math.min(navigator.hardwareConcurrency || 1, 4);
+const $de7d9ffa4a2b1ea0$var$DEFAULT_PICA_OPTS = {
     tile: 1024,
-    concurrency: $ed498a97b604fad5$var$concurrency,
+    concurrency: $de7d9ffa4a2b1ea0$var$concurrency,
     features: [
         "js",
         "wasm",
@@ -1762,20 +1759,20 @@ const $ed498a97b604fad5$var$DEFAULT_PICA_OPTS = {
         return tmpCanvas;
     }
 };
-const $ed498a97b604fad5$var$DEFAULT_RESIZE_OPTS = {
+const $de7d9ffa4a2b1ea0$var$DEFAULT_RESIZE_OPTS = {
     filter: "mks2013",
     unsharpAmount: 0,
     unsharpRadius: 0.0,
     unsharpThreshold: 0
 };
-let $ed498a97b604fad5$var$CAN_NEW_IMAGE_DATA = false;
-let $ed498a97b604fad5$var$CAN_CREATE_IMAGE_BITMAP = false;
-let $ed498a97b604fad5$var$CAN_USE_CANVAS_GET_IMAGE_DATA = false;
-let $ed498a97b604fad5$var$CAN_USE_OFFSCREEN_CANVAS = false;
-let $ed498a97b604fad5$var$CAN_USE_CIB_REGION_FOR_IMAGE = false;
-function $ed498a97b604fad5$var$workerFabric() {
+let $de7d9ffa4a2b1ea0$var$CAN_NEW_IMAGE_DATA = false;
+let $de7d9ffa4a2b1ea0$var$CAN_CREATE_IMAGE_BITMAP = false;
+let $de7d9ffa4a2b1ea0$var$CAN_USE_CANVAS_GET_IMAGE_DATA = false;
+let $de7d9ffa4a2b1ea0$var$CAN_USE_OFFSCREEN_CANVAS = false;
+let $de7d9ffa4a2b1ea0$var$CAN_USE_CIB_REGION_FOR_IMAGE = false;
+function $de7d9ffa4a2b1ea0$var$workerFabric() {
     return {
-        value: (parcelRequire("2DSRQ"))($543b1585e1d06a1b$exports),
+        value: (parcelRequire("1A6un"))($7eceeb6716911321$exports),
         destroy: function() {
             this.value.terminate();
             if (typeof window !== "undefined") {
@@ -1787,14 +1784,14 @@ function $ed498a97b604fad5$var$workerFabric() {
 }
 ////////////////////////////////////////////////////////////////////////////////
 // API methods
-function $ed498a97b604fad5$var$Pica(options) {
-    if (!(this instanceof $ed498a97b604fad5$var$Pica)) return new $ed498a97b604fad5$var$Pica(options);
-    this.options = $fQtfM({}, $ed498a97b604fad5$var$DEFAULT_PICA_OPTS, options || {});
+function $de7d9ffa4a2b1ea0$var$Pica(options) {
+    if (!(this instanceof $de7d9ffa4a2b1ea0$var$Pica)) return new $de7d9ffa4a2b1ea0$var$Pica(options);
+    this.options = $3TIyg({}, $de7d9ffa4a2b1ea0$var$DEFAULT_PICA_OPTS, options || {});
     let limiter_key = `lk_${this.options.concurrency}`;
     // Share limiters to avoid multiple parallel workers when user creates
     // multiple pica instances.
-    this.__limit = $ed498a97b604fad5$var$singletones[limiter_key] || $6bdc296e5fb8780b$export$28da6b3f303613d5(this.options.concurrency);
-    if (!$ed498a97b604fad5$var$singletones[limiter_key]) $ed498a97b604fad5$var$singletones[limiter_key] = this.__limit;
+    this.__limit = $de7d9ffa4a2b1ea0$var$singletones[limiter_key] || $b70107771ce832c8$export$28da6b3f303613d5(this.options.concurrency);
+    if (!$de7d9ffa4a2b1ea0$var$singletones[limiter_key]) $de7d9ffa4a2b1ea0$var$singletones[limiter_key] = this.__limit;
     // List of supported features, according to options & browser/node.js
     this.features = {
         js: false,
@@ -1808,12 +1805,12 @@ function $ed498a97b604fad5$var$Pica(options) {
     this.__mathlib = null;
 }
 
-$ed498a97b604fad5$var$Pica.prototype.init = function() {
+$de7d9ffa4a2b1ea0$var$Pica.prototype.init = function() {
     if (this.__initPromise) return this.__initPromise;
     // Test if we can create ImageData without canvas and memory copy
     if (typeof ImageData !== "undefined" && typeof Uint8ClampedArray !== "undefined") try {
         /* eslint-disable no-new */ new ImageData(new Uint8ClampedArray(400), 10, 10);
-        $ed498a97b604fad5$var$CAN_NEW_IMAGE_DATA = true;
+        $de7d9ffa4a2b1ea0$var$CAN_NEW_IMAGE_DATA = true;
     } catch (__) {}
     // ImageBitmap can be effective in 2 places:
     //
@@ -1823,7 +1820,7 @@ $ed498a97b604fad5$var$Pica.prototype.init = function() {
     // For basic use we also need ImageBitmap wo support .close() method,
     // see https://developer.mozilla.org/ru/docs/Web/API/ImageBitmap
     if (typeof ImageBitmap !== "undefined") {
-        if (ImageBitmap.prototype && ImageBitmap.prototype.close) $ed498a97b604fad5$var$CAN_CREATE_IMAGE_BITMAP = true;
+        if (ImageBitmap.prototype && ImageBitmap.prototype.close) $de7d9ffa4a2b1ea0$var$CAN_CREATE_IMAGE_BITMAP = true;
         else this.debug("ImageBitmap does not support .close(), disabled");
     }
     let features = this.options.features.slice();
@@ -1834,49 +1831,49 @@ $ed498a97b604fad5$var$Pica.prototype.init = function() {
         "ww"
     ];
     this.__requested_features = features;
-    this.__mathlib = new $19T8x(features);
+    this.__mathlib = new $iX7ak(features);
     // Check WebWorker support if requested
     if (features.indexOf("ww") >= 0) {
         if (typeof window !== "undefined" && "Worker" in window) // IE <= 11 don't allow to create webworkers from string. We should check it.
         // https://connect.microsoft.com/IE/feedback/details/801810/web-workers-from-blob-urls-in-ie-10-and-11
         try {
-            let wkr = (parcelRequire("2DSRQ"))(function() {});
+            let wkr = (parcelRequire("1A6un"))(function() {});
             wkr.terminate();
             this.features.ww = true;
             // pool uniqueness depends on pool config + webworker config
             let wpool_key = `wp_${JSON.stringify(this.options)}`;
-            if ($ed498a97b604fad5$var$singletones[wpool_key]) this.__workersPool = $ed498a97b604fad5$var$singletones[wpool_key];
+            if ($de7d9ffa4a2b1ea0$var$singletones[wpool_key]) this.__workersPool = $de7d9ffa4a2b1ea0$var$singletones[wpool_key];
             else {
-                this.__workersPool = new $94c4dfcdb6943aaf$exports($ed498a97b604fad5$var$workerFabric, this.options.idle);
-                $ed498a97b604fad5$var$singletones[wpool_key] = this.__workersPool;
+                this.__workersPool = new $b1604168657025ed$exports($de7d9ffa4a2b1ea0$var$workerFabric, this.options.idle);
+                $de7d9ffa4a2b1ea0$var$singletones[wpool_key] = this.__workersPool;
             }
         } catch (__) {}
     }
     let initMath = this.__mathlib.init().then((mathlib)=>{
         // Copy detected features
-        $fQtfM(this.features, mathlib.features);
+        $3TIyg(this.features, mathlib.features);
     });
     let checkCibResize;
-    if (!$ed498a97b604fad5$var$CAN_CREATE_IMAGE_BITMAP) checkCibResize = Promise.resolve(false);
-    else checkCibResize = $6bdc296e5fb8780b$export$7f9fc0f6196598f6(this.options.createCanvas).then((status)=>{
+    if (!$de7d9ffa4a2b1ea0$var$CAN_CREATE_IMAGE_BITMAP) checkCibResize = Promise.resolve(false);
+    else checkCibResize = $b70107771ce832c8$export$7f9fc0f6196598f6(this.options.createCanvas).then((status)=>{
         if (this.features.cib && features.indexOf("cib") < 0) {
             this.debug("createImageBitmap() resize supported, but disabled by config");
             return;
         }
         if (features.indexOf("cib") >= 0) this.features.cib = status;
     });
-    $ed498a97b604fad5$var$CAN_USE_CANVAS_GET_IMAGE_DATA = $6bdc296e5fb8780b$export$db38455243ada99e(this.options.createCanvas);
+    $de7d9ffa4a2b1ea0$var$CAN_USE_CANVAS_GET_IMAGE_DATA = $b70107771ce832c8$export$db38455243ada99e(this.options.createCanvas);
     let checkOffscreenCanvas;
-    if ($ed498a97b604fad5$var$CAN_CREATE_IMAGE_BITMAP && $ed498a97b604fad5$var$CAN_NEW_IMAGE_DATA && features.indexOf("ww") !== -1) checkOffscreenCanvas = $6bdc296e5fb8780b$export$6c0e957e50473ced();
+    if ($de7d9ffa4a2b1ea0$var$CAN_CREATE_IMAGE_BITMAP && $de7d9ffa4a2b1ea0$var$CAN_NEW_IMAGE_DATA && features.indexOf("ww") !== -1) checkOffscreenCanvas = $b70107771ce832c8$export$6c0e957e50473ced();
     else checkOffscreenCanvas = Promise.resolve(false);
     checkOffscreenCanvas = checkOffscreenCanvas.then((result)=>{
-        $ed498a97b604fad5$var$CAN_USE_OFFSCREEN_CANVAS = result;
+        $de7d9ffa4a2b1ea0$var$CAN_USE_OFFSCREEN_CANVAS = result;
     });
     // we use createImageBitmap to crop image data and pass it to workers,
     // so need to check whether function works correctly;
     // https://bugs.chromium.org/p/chromium/issues/detail?id=1220671
-    let checkCibRegion = $6bdc296e5fb8780b$export$aff86d9eea48781e().then((result)=>{
-        $ed498a97b604fad5$var$CAN_USE_CIB_REGION_FOR_IMAGE = result;
+    let checkCibRegion = $b70107771ce832c8$export$aff86d9eea48781e().then((result)=>{
+        $de7d9ffa4a2b1ea0$var$CAN_USE_CIB_REGION_FOR_IMAGE = result;
     });
     // Init math lib. That's async because can load some
     this.__initPromise = Promise.all([
@@ -1888,7 +1885,7 @@ $ed498a97b604fad5$var$Pica.prototype.init = function() {
     return this.__initPromise;
 };
 // Call resizer in webworker or locally, depending on config
-$ed498a97b604fad5$var$Pica.prototype.__invokeResize = function(tileOpts, opts) {
+$de7d9ffa4a2b1ea0$var$Pica.prototype.__invokeResize = function(tileOpts, opts) {
     // Share cache between calls:
     //
     // - wasm instance
@@ -1922,11 +1919,11 @@ $ed498a97b604fad5$var$Pica.prototype.__invokeResize = function(tileOpts, opts) {
     });
 };
 // this function can return promise if createImageBitmap is used
-$ed498a97b604fad5$var$Pica.prototype.__extractTileData = function(tile, from, opts, stageEnv, extractTo) {
-    if (this.features.ww && $ed498a97b604fad5$var$CAN_USE_OFFSCREEN_CANVAS && // createImageBitmap doesn't work for images (Image, ImageBitmap) with Exif orientation in Chrome,
+$de7d9ffa4a2b1ea0$var$Pica.prototype.__extractTileData = function(tile, from, opts, stageEnv, extractTo) {
+    if (this.features.ww && $de7d9ffa4a2b1ea0$var$CAN_USE_OFFSCREEN_CANVAS && // createImageBitmap doesn't work for images (Image, ImageBitmap) with Exif orientation in Chrome,
     // can use canvas because canvas doesn't have orientation;
     // see https://bugs.chromium.org/p/chromium/issues/detail?id=1220671
-    ($6bdc296e5fb8780b$export$4b05d74c82e4c4d2(from) || $ed498a97b604fad5$var$CAN_USE_CIB_REGION_FOR_IMAGE)) {
+    ($b70107771ce832c8$export$4b05d74c82e4c4d2(from) || $de7d9ffa4a2b1ea0$var$CAN_USE_CIB_REGION_FOR_IMAGE)) {
         this.debug("Create tile for OffscreenCanvas");
         return createImageBitmap(stageEnv.srcImageBitmap || from, tile.x, tile.y, tile.width, tile.height).then((bitmap)=>{
             extractTo.srcBitmap = bitmap;
@@ -1934,7 +1931,7 @@ $ed498a97b604fad5$var$Pica.prototype.__extractTileData = function(tile, from, op
         });
     }
     // Extract tile RGBA buffer, depending on input type
-    if ($6bdc296e5fb8780b$export$4b05d74c82e4c4d2(from)) {
+    if ($b70107771ce832c8$export$4b05d74c82e4c4d2(from)) {
         if (!stageEnv.srcCtx) stageEnv.srcCtx = from.getContext("2d");
         // If input is Canvas - extract region data directly
         this.debug("Get tile pixel data");
@@ -1958,14 +1955,14 @@ $ed498a97b604fad5$var$Pica.prototype.__extractTileData = function(tile, from, op
     tmpCanvas.width = tmpCanvas.height = 0;
     return extractTo;
 };
-$ed498a97b604fad5$var$Pica.prototype.__landTileData = function(tile, result, stageEnv) {
+$de7d9ffa4a2b1ea0$var$Pica.prototype.__landTileData = function(tile, result, stageEnv) {
     let toImageData;
     this.debug("Convert raw rgba tile result to ImageData");
     if (result.bitmap) {
         stageEnv.toCtx.drawImage(result.bitmap, tile.toX, tile.toY);
         return null;
     }
-    if ($ed498a97b604fad5$var$CAN_NEW_IMAGE_DATA) // this branch is for modern browsers
+    if ($de7d9ffa4a2b1ea0$var$CAN_NEW_IMAGE_DATA) // this branch is for modern browsers
     // If `new ImageData()` & Uint8ClampedArray suported
     toImageData = new ImageData(new Uint8ClampedArray(result.data), tile.toWidth, tile.toHeight);
     else {
@@ -1977,12 +1974,12 @@ $ed498a97b604fad5$var$Pica.prototype.__landTileData = function(tile, result, sta
         for(let i = toImageData.data.length - 1; i >= 0; i--)toImageData.data[i] = result.data[i];
     }
     this.debug("Draw tile");
-    if ($ed498a97b604fad5$var$NEED_SAFARI_FIX) // Safari draws thin white stripes between tiles without this fix
+    if ($de7d9ffa4a2b1ea0$var$NEED_SAFARI_FIX) // Safari draws thin white stripes between tiles without this fix
     stageEnv.toCtx.putImageData(toImageData, tile.toX, tile.toY, tile.toInnerX - tile.toX, tile.toInnerY - tile.toY, tile.toInnerWidth + 1e-5, tile.toInnerHeight + 1e-5);
     else stageEnv.toCtx.putImageData(toImageData, tile.toX, tile.toY, tile.toInnerX - tile.toX, tile.toInnerY - tile.toY, tile.toInnerWidth, tile.toInnerHeight);
     return null;
 };
-$ed498a97b604fad5$var$Pica.prototype.__tileAndResize = function(from, to, opts) {
+$de7d9ffa4a2b1ea0$var$Pica.prototype.__tileAndResize = function(from, to, opts) {
     let stageEnv = {
         srcCtx: null,
         srcImageBitmap: null,
@@ -2019,16 +2016,16 @@ $ed498a97b604fad5$var$Pica.prototype.__tileAndResize = function(from, to, opts) 
     // If image - try to decode in background if possible
     return Promise.resolve().then(()=>{
         stageEnv.toCtx = to.getContext("2d");
-        if ($6bdc296e5fb8780b$export$4b05d74c82e4c4d2(from)) return null;
-        if ($6bdc296e5fb8780b$export$4c394cd787f4a4b7(from)) {
+        if ($b70107771ce832c8$export$4b05d74c82e4c4d2(from)) return null;
+        if ($b70107771ce832c8$export$4c394cd787f4a4b7(from)) {
             stageEnv.srcImageBitmap = from;
             stageEnv.isImageBitmapReused = true;
             return null;
         }
-        if ($6bdc296e5fb8780b$export$fb85bc5d6d9ef19b(from)) {
+        if ($b70107771ce832c8$export$fb85bc5d6d9ef19b(from)) {
             // try do decode image in background for faster next operations;
             // if we're using offscreen canvas, cib is called per tile, so not needed here
-            if (!$ed498a97b604fad5$var$CAN_CREATE_IMAGE_BITMAP) return null;
+            if (!$de7d9ffa4a2b1ea0$var$CAN_CREATE_IMAGE_BITMAP) return null;
             this.debug("Decode image via createImageBitmap");
             return createImageBitmap(from).then((imageBitmap)=>{
                 stageEnv.srcImageBitmap = imageBitmap;
@@ -2044,7 +2041,7 @@ $ed498a97b604fad5$var$Pica.prototype.__tileAndResize = function(from, to, opts) 
         // Here we are with "normalized" source,
         // follow to tiling
         //
-        let regions = $9fdb8dda61998012$exports({
+        let regions = $d1efe991c365fcf6$exports({
             width: opts.width,
             height: opts.height,
             srcTileSize: this.options.tile,
@@ -2070,7 +2067,7 @@ $ed498a97b604fad5$var$Pica.prototype.__tileAndResize = function(from, to, opts) 
         });
     });
 };
-$ed498a97b604fad5$var$Pica.prototype.__processStages = function(stages, from, to, opts) {
+$de7d9ffa4a2b1ea0$var$Pica.prototype.__processStages = function(stages, from, to, opts) {
     if (opts.canceled) return opts.cancelToken;
     let [toWidth, toHeight] = stages.shift();
     let isLastStage = stages.length === 0;
@@ -2082,10 +2079,10 @@ $ed498a97b604fad5$var$Pica.prototype.__processStages = function(stages, from, to
     // For advanced filters (mks2013 and custom) - skip optimization,
     // because need to apply sharpening every time
     let filter;
-    if (isLastStage || $5zZT4.q2f.indexOf(opts.filter) < 0) filter = opts.filter;
+    if (isLastStage || $2eSbp.q2f.indexOf(opts.filter) < 0) filter = opts.filter;
     else if (opts.filter === "box") filter = "box";
     else filter = "hamming";
-    opts = $fQtfM({}, opts, {
+    opts = $3TIyg({}, opts, {
         toWidth: toWidth,
         toHeight: toHeight,
         filter: filter
@@ -2105,13 +2102,13 @@ $ed498a97b604fad5$var$Pica.prototype.__processStages = function(stages, from, to
         return res;
     });
 };
-$ed498a97b604fad5$var$Pica.prototype.__resizeViaCreateImageBitmap = function(from, to, opts) {
+$de7d9ffa4a2b1ea0$var$Pica.prototype.__resizeViaCreateImageBitmap = function(from, to, opts) {
     let toCtx = to.getContext("2d");
     this.debug("Resize via createImageBitmap()");
     return createImageBitmap(from, {
         resizeWidth: opts.toWidth,
         resizeHeight: opts.toHeight,
-        resizeQuality: $6bdc296e5fb8780b$export$adfbffb03f386655($5zZT4.f2q[opts.filter])
+        resizeQuality: $b70107771ce832c8$export$adfbffb03f386655($2eSbp.f2q[opts.filter])
     }).then((imageBitmap)=>{
         if (opts.canceled) return opts.cancelToken;
         // if no unsharp - draw directly to output canvas
@@ -2138,13 +2135,13 @@ $ed498a97b604fad5$var$Pica.prototype.__resizeViaCreateImageBitmap = function(fro
         return to;
     });
 };
-$ed498a97b604fad5$var$Pica.prototype.resize = function(from, to, options) {
+$de7d9ffa4a2b1ea0$var$Pica.prototype.resize = function(from, to, options) {
     this.debug("Start resize...");
-    let opts = $fQtfM({}, $ed498a97b604fad5$var$DEFAULT_RESIZE_OPTS);
-    if (!isNaN(options)) opts = $fQtfM(opts, {
+    let opts = $3TIyg({}, $de7d9ffa4a2b1ea0$var$DEFAULT_RESIZE_OPTS);
+    if (!isNaN(options)) opts = $3TIyg(opts, {
         quality: options
     });
-    else if (options) opts = $fQtfM(opts, options);
+    else if (options) opts = $3TIyg(opts, options);
     opts.toWidth = to.width;
     opts.toHeight = to.height;
     opts.width = from.naturalWidth || from.width;
@@ -2152,7 +2149,7 @@ $ed498a97b604fad5$var$Pica.prototype.resize = function(from, to, options) {
     // Legacy `.quality` option
     if (Object.prototype.hasOwnProperty.call(opts, "quality")) {
         if (opts.quality < 0 || opts.quality > 3) throw new Error(`Pica: .quality should be [0..3], got ${opts.quality}`);
-        opts.filter = $5zZT4.q2f[opts.quality];
+        opts.filter = $2eSbp.q2f[opts.quality];
     }
     // Prevent stepper from infinite loop
     if (to.width === 0 || to.height === 0) return Promise.reject(new Error(`Invalid output size: ${to.width}x${to.height}`));
@@ -2172,10 +2169,10 @@ $ed498a97b604fad5$var$Pica.prototype.resize = function(from, to, options) {
         if (opts.canceled) return opts.cancelToken;
         // if createImageBitmap supports resize, just do it and return
         if (this.features.cib) {
-            if ($5zZT4.q2f.indexOf(opts.filter) >= 0) return this.__resizeViaCreateImageBitmap(from, to, opts);
+            if ($2eSbp.q2f.indexOf(opts.filter) >= 0) return this.__resizeViaCreateImageBitmap(from, to, opts);
             this.debug("cib is enabled, but not supports provided filter, fallback to manual math");
         }
-        if (!$ed498a97b604fad5$var$CAN_USE_CANVAS_GET_IMAGE_DATA) {
+        if (!$de7d9ffa4a2b1ea0$var$CAN_USE_CANVAS_GET_IMAGE_DATA) {
             let err = new Error("Pica: cannot use getImageData on canvas, make sure fingerprinting protection isn't enabled");
             err.code = "ERR_GET_IMAGE_DATA";
             throw err;
@@ -2183,22 +2180,22 @@ $ed498a97b604fad5$var$Pica.prototype.resize = function(from, to, options) {
         //
         // No easy way, let's resize manually via arrays
         //
-        let stages = $3e156945344d4dd4$exports(opts.width, opts.height, opts.toWidth, opts.toHeight, this.options.tile, opts.__destTileBorder);
+        let stages = $63ccf9a0102f59a6$exports(opts.width, opts.height, opts.toWidth, opts.toHeight, this.options.tile, opts.__destTileBorder);
         return this.__processStages(stages, from, to, opts);
     });
 };
 // RGBA buffer resize
 //
-$ed498a97b604fad5$var$Pica.prototype.resizeBuffer = function(options) {
-    const opts = $fQtfM({}, $ed498a97b604fad5$var$DEFAULT_RESIZE_OPTS, options);
+$de7d9ffa4a2b1ea0$var$Pica.prototype.resizeBuffer = function(options) {
+    const opts = $3TIyg({}, $de7d9ffa4a2b1ea0$var$DEFAULT_RESIZE_OPTS, options);
     // Legacy `.quality` option
     if (Object.prototype.hasOwnProperty.call(opts, "quality")) {
         if (opts.quality < 0 || opts.quality > 3) throw new Error(`Pica: .quality should be [0..3], got ${opts.quality}`);
-        opts.filter = $5zZT4.q2f[opts.quality];
+        opts.filter = $2eSbp.q2f[opts.quality];
     }
     return this.init().then(()=>this.__mathlib.resizeAndUnsharp(opts));
 };
-$ed498a97b604fad5$var$Pica.prototype.toBlob = function(canvas, mimeType, quality) {
+$de7d9ffa4a2b1ea0$var$Pica.prototype.toBlob = function(canvas, mimeType, quality) {
     mimeType = mimeType || "image/png";
     return new Promise((resolve)=>{
         if (canvas.toBlob) {
@@ -2224,13 +2221,13 @@ $ed498a97b604fad5$var$Pica.prototype.toBlob = function(canvas, mimeType, quality
         }));
     });
 };
-$ed498a97b604fad5$var$Pica.prototype.debug = function() {};
-$ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
+$de7d9ffa4a2b1ea0$var$Pica.prototype.debug = function() {};
+$de7d9ffa4a2b1ea0$exports = $de7d9ffa4a2b1ea0$var$Pica;
 
 
 /**
  * @typedef {{x: number, y: number}} Tuple
- */ class $d63ce871ef98b138$var$CanvasUtil {
+ */ class $9f577fbdef209026$var$CanvasUtil {
     /**
      * @param image {Image|HTMLImageElement}
      * @param width {number}
@@ -2249,25 +2246,24 @@ $ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
     }
     async resizeImage(image, width, height, options) {
         const { sx: sx , sy: sy , sw: sw , sh: sh  } = options;
-        if (typeof window !== "undefined") image.setAttribute("crossOrigin", "Anonymous");
         let fromCanvas = this.getImageCanvas(image, sx, sy, sw, sh);
         let toCanvas;
         let pica;
         if (typeof window === "undefined") {
             // This is not a browser, use the canvas package
-            toCanvas = (0, $60ae514bd74eb968$export$cd3d1f114b139967)(width, height);
+            toCanvas = (0, $a81bfcfc0e69bec7$export$cd3d1f114b139967)(width, height);
             toCanvas.width = width;
             toCanvas.height = height;
             // Trick pica into thinking that this is a normal HTML cavas
             fromCanvas[Symbol.toStringTag] = "HTMLCanvasElement";
-            pica = new (0, (/*@__PURE__*/$parcel$interopDefault($ed498a97b604fad5$exports)))({
+            pica = new (0, (/*@__PURE__*/$parcel$interopDefault($de7d9ffa4a2b1ea0$exports)))({
                 tile: 1024,
                 concurrency: 1,
                 features: [
                     "js"
                 ],
                 idle: 2000,
-                createCanvas: $60ae514bd74eb968$export$cd3d1f114b139967
+                createCanvas: $a81bfcfc0e69bec7$export$cd3d1f114b139967
             });
         } else {
             function browserCreateCanvas(width, height) {
@@ -2276,7 +2272,7 @@ $ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
                 canvas.height = height;
                 return canvas;
             }
-            pica = new (0, (/*@__PURE__*/$parcel$interopDefault($ed498a97b604fad5$exports)))({
+            pica = new (0, (/*@__PURE__*/$parcel$interopDefault($de7d9ffa4a2b1ea0$exports)))({
                 tile: 1024,
                 concurrency: 1,
                 features: [
@@ -2293,7 +2289,7 @@ $ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
     }
     getImageCanvas(image, sx, sy, sw, sh) {
         if (Object.prototype.toString.call(image) === "[object HTMLCanvasElement]" && sx === undefined) return image;
-        const canvas = typeof window === "undefined" ? (0, $60ae514bd74eb968$export$cd3d1f114b139967)(sw || image.width, sh || image.height) : document.createElement("canvas");
+        const canvas = typeof window === "undefined" ? (0, $a81bfcfc0e69bec7$export$cd3d1f114b139967)(sw || image.width, sh || image.height) : document.createElement("canvas");
         canvas.width = image.naturalWidth || sw;
         canvas.height = image.naturalHeight || sh;
         const ctx = canvas.getContext("2d");
@@ -2306,8 +2302,8 @@ $ed498a97b604fad5$exports = $ed498a97b604fad5$var$Pica;
         return canvas;
     }
 }
-const $d63ce871ef98b138$export$b800e0a7c023911d = new $d63ce871ef98b138$var$CanvasUtil();
-class $d63ce871ef98b138$var$GrayScaleConverter {
+const $9f577fbdef209026$export$b800e0a7c023911d = new $9f577fbdef209026$var$CanvasUtil();
+class $9f577fbdef209026$var$GrayScaleConverter {
     /**
      *
      * RGBA -> L (ITU-R 601-2 luma transform)
@@ -2319,10 +2315,10 @@ class $d63ce871ef98b138$var$GrayScaleConverter {
         return arr;
     }
 }
-const $d63ce871ef98b138$export$a0eca36e8a395edb = new $d63ce871ef98b138$var$GrayScaleConverter();
+const $9f577fbdef209026$export$a0eca36e8a395edb = new $9f577fbdef209026$var$GrayScaleConverter();
 
 
-class $697e84c2185d0db8$export$8d4a4db4f3b072e1 {
+class $9e555d56f9e31450$export$8d4a4db4f3b072e1 {
     binArray;
     /**
      * @param binArray {Uint8ClampedArray}
@@ -2343,7 +2339,7 @@ class $697e84c2185d0db8$export$8d4a4db4f3b072e1 {
             arr[i * 8 + 6] = (c & 0x40) >> 6;
             arr[i * 8 + 7] = (c & 0x80) >> 7;
         }
-        return new $697e84c2185d0db8$export$8d4a4db4f3b072e1(arr);
+        return new $9e555d56f9e31450$export$8d4a4db4f3b072e1(arr);
     }
     static fromHexStringReversed(s) {
         if (s.length % 2 !== 0) throw Error("hex string length must be a multiple of 2");
@@ -2360,7 +2356,7 @@ class $697e84c2185d0db8$export$8d4a4db4f3b072e1 {
             arr[i * 4 + 6] = (c & 0x02) >> 1;
             arr[i * 4 + 7] = c & 0x01;
         }
-        return new $697e84c2185d0db8$export$8d4a4db4f3b072e1(arr);
+        return new $9e555d56f9e31450$export$8d4a4db4f3b072e1(arr);
     }
     static fromHexString(s) {
         if (s.length % 2 !== 0) throw Error("hex string length must be a multiple of 2");
@@ -2377,7 +2373,7 @@ class $697e84c2185d0db8$export$8d4a4db4f3b072e1 {
             arr[i * 4 + 6] = (c & 0x40) >> 6;
             arr[i * 4 + 7] = (c & 0x80) >> 7;
         }
-        return new $697e84c2185d0db8$export$8d4a4db4f3b072e1(arr);
+        return new $9e555d56f9e31450$export$8d4a4db4f3b072e1(arr);
     }
     toHexStringReversed() {
         let str = "";
@@ -2410,7 +2406,7 @@ class $697e84c2185d0db8$export$8d4a4db4f3b072e1 {
         return distance;
     }
 }
-class $697e84c2185d0db8$export$88a288ed7909ebd3 {
+class $9e555d56f9e31450$export$88a288ed7909ebd3 {
     constructor(hashes){
         this.segmentHashes = hashes;
     }
@@ -2418,7 +2414,7 @@ class $697e84c2185d0db8$export$88a288ed7909ebd3 {
         return this.segmentHashes.map((h)=>h.toHexString());
     }
     static fromJSON(json) {
-        return new $697e84c2185d0db8$export$88a288ed7909ebd3(json.map((s)=>$697e84c2185d0db8$export$8d4a4db4f3b072e1.fromHexString(s)));
+        return new $9e555d56f9e31450$export$88a288ed7909ebd3(json.map((s)=>$9e555d56f9e31450$export$8d4a4db4f3b072e1.fromHexString(s)));
     }
     /**
      * @param hash {ImageMultiHash}
@@ -2444,51 +2440,51 @@ class $697e84c2185d0db8$export$88a288ed7909ebd3 {
 }
 
 
-async function $428930f2f5ca011a$export$3ff5a4f04de7e52e(image, size = 8) {
-    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImageAndGetData(image, size, size));
+async function $1708ac639f8fa788$export$3ff5a4f04de7e52e(image, size = 8) {
+    const pixels = (0, $9f577fbdef209026$export$a0eca36e8a395edb).convert(await (0, $9f577fbdef209026$export$b800e0a7c023911d).resizeImageAndGetData(image, size, size));
     const hash = new Uint8ClampedArray(size * size);
     let sum = 0;
     for(let i = 0; i < pixels.length; i++)sum += pixels[i];
     const avg = sum / pixels.length;
     for(let i = 0; i < pixels.length; i++)hash[i] = pixels[i] > avg;
-    return new (0, $697e84c2185d0db8$export$8d4a4db4f3b072e1)(hash);
+    return new (0, $9e555d56f9e31450$export$8d4a4db4f3b072e1)(hash);
 }
 
 
 
 
-async function $7951337d04d39bc5$export$a54d5a9c851b86d5(image, size = 8) {
-    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImageAndGetData(image, size + 1, size));
+async function $6fbfb80da9fa69d2$export$a54d5a9c851b86d5(image, size = 8) {
+    const pixels = (0, $9f577fbdef209026$export$a0eca36e8a395edb).convert(await (0, $9f577fbdef209026$export$b800e0a7c023911d).resizeImageAndGetData(image, size + 1, size));
     const hash = new Uint8ClampedArray(size * size);
     const nRows = size;
     const nCols = size + 1;
     let offset = 0;
     for(let i = 0; i < nRows; i++)for(let j = 1; j < nCols; j++)hash[offset++] = pixels[i * nCols + j] > pixels[i * nCols + j - 1];
-    return new (0, $697e84c2185d0db8$export$8d4a4db4f3b072e1)(hash);
+    return new (0, $9e555d56f9e31450$export$8d4a4db4f3b072e1)(hash);
 }
 
 
 
 
-const $1b5a4819c0d3ca60$var$cosCache = {};
-function $1b5a4819c0d3ca60$var$precomputeCos(L) {
-    if (L in $1b5a4819c0d3ca60$var$cosCache) return $1b5a4819c0d3ca60$var$cosCache[L];
+const $304f6ee132cc55e8$var$cosCache = {};
+function $304f6ee132cc55e8$var$precomputeCos(L) {
+    if (L in $304f6ee132cc55e8$var$cosCache) return $304f6ee132cc55e8$var$cosCache[L];
     const piOver2L = Math.PI / (2 * L);
     const cos = {};
     for(let u = 0; u < L; u++){
         const uTimesPiOver2L = u * piOver2L;
         for(let x = 0; x < L; x++)cos[(u << 8) + x] = Math.cos((2 * x + 1) * uTimesPiOver2L);
     }
-    $1b5a4819c0d3ca60$var$cosCache[L] = cos;
+    $304f6ee132cc55e8$var$cosCache[L] = cos;
     return cos;
 }
 /**
  * 2D DCT-II
  * @param matrix Must be a square matrix
  * @return {Array}
- */ function $1b5a4819c0d3ca60$var$dctTransform(matrix) {
+ */ function $304f6ee132cc55e8$var$dctTransform(matrix) {
     const L = Math.round(Math.sqrt(matrix.length));
-    const cos = $1b5a4819c0d3ca60$var$precomputeCos(L);
+    const cos = $304f6ee132cc55e8$var$precomputeCos(L);
     const dct = new Array(L * L);
     let _u, _v, sum;
     for(let u = 0; u < L; u++)for(let v = 0; v < L; v++){
@@ -2500,14 +2496,14 @@ function $1b5a4819c0d3ca60$var$precomputeCos(L) {
     }
     return dct;
 }
-function $1b5a4819c0d3ca60$var$median(values) {
+function $304f6ee132cc55e8$var$median(values) {
     values.sort((a, b)=>a - b);
     return values[Math.floor(values.length / 2)];
 }
-async function $1b5a4819c0d3ca60$export$1b9f82d63d7325c(image, size = 8, highFrequencyFactor = 4) {
+async function $304f6ee132cc55e8$export$1b9f82d63d7325c(image, size = 8, highFrequencyFactor = 4) {
     const imageSize = size * highFrequencyFactor;
-    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImageAndGetData(image, imageSize, imageSize));
-    const dctOut = $1b5a4819c0d3ca60$var$dctTransform(pixels);
+    const pixels = (0, $9f577fbdef209026$export$a0eca36e8a395edb).convert(await (0, $9f577fbdef209026$export$b800e0a7c023911d).resizeImageAndGetData(image, imageSize, imageSize));
+    const dctOut = $304f6ee132cc55e8$var$dctTransform(pixels);
     const dctLowFreq = new Float64Array(size * size);
     const sorted = new Float64Array(size * size);
     let ptrLow = 0;
@@ -2523,21 +2519,21 @@ async function $1b5a4819c0d3ca60$export$1b9f82d63d7325c(image, size = 8, highFre
     }
     let sum = 0;
     for(let i = 0; i < dctLowFreq.length; i++)sum += dctLowFreq[i];
-    const med = $1b5a4819c0d3ca60$var$median(sorted);
+    const med = $304f6ee132cc55e8$var$median(sorted);
     const hash = new Uint8ClampedArray(size * size);
     for(let i = 0; i < hash.length; ++i)hash[i] = dctLowFreq[i] > med;
-    return new (0, $697e84c2185d0db8$export$8d4a4db4f3b072e1)(hash);
+    return new (0, $9e555d56f9e31450$export$8d4a4db4f3b072e1)(hash);
 }
 
 
 
 
 
-const $5d99fb4c94813a28$var$HaarWavelet = [
+const $ee48ba1550c7f841$var$HaarWavelet = [
     1 / Math.SQRT2,
     1 / Math.SQRT2
 ];
-function $5d99fb4c94813a28$var$waveletFromScalingNumbers(scalingNumbers) {
+function $ee48ba1550c7f841$var$waveletFromScalingNumbers(scalingNumbers) {
     const waveletNumbers = scalingNumbers.slice().reverse().map((value, index)=>index % 2 === 0 ? value : -value);
     return {
         dec: {
@@ -2550,37 +2546,37 @@ function $5d99fb4c94813a28$var$waveletFromScalingNumbers(scalingNumbers) {
         }
     };
 }
-const $5d99fb4c94813a28$var$HaarBasis = $5d99fb4c94813a28$var$waveletFromScalingNumbers($5d99fb4c94813a28$var$HaarWavelet);
-function $5d99fb4c94813a28$var$getBasis(wavelet) {
-    if (wavelet === "haar") return $5d99fb4c94813a28$var$HaarBasis;
+const $ee48ba1550c7f841$var$HaarBasis = $ee48ba1550c7f841$var$waveletFromScalingNumbers($ee48ba1550c7f841$var$HaarWavelet);
+function $ee48ba1550c7f841$var$getBasis(wavelet) {
+    if (wavelet === "haar") return $ee48ba1550c7f841$var$HaarBasis;
     throw new Error("Invalid wavelet");
 }
-function $5d99fb4c94813a28$var$dot(a, b) {
+function $ee48ba1550c7f841$var$dot(a, b) {
     /* Calculate dot product. */ return a.reduce((dot, value, index)=>dot + value * b[index], 0);
 }
-function $5d99fb4c94813a28$var$add(a, b) {
+function $ee48ba1550c7f841$var$add(a, b) {
     /* Calculate element-wise sum. */ return a.map((value, index)=>value + b[index]);
 }
-function $5d99fb4c94813a28$var$mulScalar(scalar, array) {
+function $ee48ba1550c7f841$var$mulScalar(scalar, array) {
     return array.map((value)=>scalar * value);
 }
-function $5d99fb4c94813a28$var$dwt(data, wavelet) {
-    const waveletBasis = $5d99fb4c94813a28$var$getBasis(wavelet);
+function $ee48ba1550c7f841$var$dwt(data, wavelet) {
+    const waveletBasis = $ee48ba1550c7f841$var$getBasis(wavelet);
     const filters = waveletBasis.dec;
     const filterLength = filters.low.length;
     let approx = [];
     let detail = [];
     /* Calculate coefficients. */ for(let offset = 0; offset + filterLength <= data.length; offset += 2){
         const values = data.slice(offset, offset + filterLength);
-        approx.push($5d99fb4c94813a28$var$dot(values, filters.low));
-        detail.push($5d99fb4c94813a28$var$dot(values, filters.high));
+        approx.push($ee48ba1550c7f841$var$dot(values, filters.low));
+        detail.push($ee48ba1550c7f841$var$dot(values, filters.high));
     }
     return [
         approx,
         detail
     ];
 }
-function $5d99fb4c94813a28$var$idwt(approx, detail, waveletBasis) {
+function $ee48ba1550c7f841$var$idwt(approx, detail, waveletBasis) {
     const filters = waveletBasis.rec;
     const filterLength = filters.low.length;
     /* Initialize transform. */ const coeffLength = approx.length;
@@ -2589,38 +2585,38 @@ function $5d99fb4c94813a28$var$idwt(approx, detail, waveletBasis) {
     /* Perform inverse Discrete Wavelet Transform. */ for(let i = 0; i < coeffLength; i++){
         const offset = 2 * i;
         /* Calculate values. */ let values = pad.slice(offset, offset + filterLength);
-        values = $5d99fb4c94813a28$var$add(values, $5d99fb4c94813a28$var$mulScalar(approx[i], filters.low));
-        values = $5d99fb4c94813a28$var$add(values, $5d99fb4c94813a28$var$mulScalar(detail[i], filters.high));
+        values = $ee48ba1550c7f841$var$add(values, $ee48ba1550c7f841$var$mulScalar(approx[i], filters.low));
+        values = $ee48ba1550c7f841$var$add(values, $ee48ba1550c7f841$var$mulScalar(detail[i], filters.high));
         /* Update values. */ pad = pad.slice(0, offset).concat(values).concat(pad.slice(offset + values.length));
     }
     /* Remove padding. */ return pad.slice(filterLength - 2, pad.length - (filterLength - 2));
 }
-function $5d99fb4c94813a28$var$wavedec(data, wavelet, level) {
+function $ee48ba1550c7f841$var$wavedec(data, wavelet, level) {
     /*  Initialize transform. */ let coeffs = [];
     let approx = data.slice();
     /* Transform. */ for(let i = 0; i < level; i++){
-        /* Perform single level transform. */ const approxDetail = $5d99fb4c94813a28$var$dwt(approx, wavelet);
+        /* Perform single level transform. */ const approxDetail = $ee48ba1550c7f841$var$dwt(approx, wavelet);
         approx = approxDetail[0];
         /* Prepend detail coefficients. */ coeffs.unshift(approxDetail[1].slice());
     }
     /* Prepend last approximation. */ coeffs.unshift(approx.slice());
     return coeffs;
 }
-function $5d99fb4c94813a28$var$waverec(coeffs, wavelet) {
-    wavelet = $5d99fb4c94813a28$var$getBasis(wavelet);
+function $ee48ba1550c7f841$var$waverec(coeffs, wavelet) {
+    wavelet = $ee48ba1550c7f841$var$getBasis(wavelet);
     let approx = coeffs[0];
     for(let i = 1; i < coeffs.length; i++){
         const detail = coeffs[i];
         if (approx.length === detail.length + 1) approx = approx.slice(0, approx.length - 1);
-        approx = $5d99fb4c94813a28$var$idwt(approx, detail, wavelet);
+        approx = $ee48ba1550c7f841$var$idwt(approx, detail, wavelet);
     }
     return approx.slice();
 }
-function $5d99fb4c94813a28$var$median(values) {
+function $ee48ba1550c7f841$var$median(values) {
     values.sort((a, b)=>a - b);
     return values[Math.floor(values.length / 2)];
 }
-function $5d99fb4c94813a28$var$wavedec2(data, wavelet, level) {
+function $ee48ba1550c7f841$var$wavedec2(data, wavelet, level) {
     const L = Math.round(Math.sqrt(data.length));
     const rows = new Array(L);
     for(let y = 0; y < L; y++){
@@ -2632,18 +2628,18 @@ function $5d99fb4c94813a28$var$wavedec2(data, wavelet, level) {
     for(let i = 0; i < L; i++)cols[i] = new Array(L);
     // Rows
     for(let y = 0; y < L; y++){
-        const coeffs = $5d99fb4c94813a28$var$wavedec(rows[y], "haar", level).flat();
+        const coeffs = $ee48ba1550c7f841$var$wavedec(rows[y], "haar", level).flat();
         for(let x = 0; x < L; x++)cols[x][y] = coeffs[x];
     }
     const result = new Array(L * L);
     // Cols
     for(let x = 0; x < L; x++){
-        const coeffs = $5d99fb4c94813a28$var$wavedec(cols[x], "haar", level).flat();
+        const coeffs = $ee48ba1550c7f841$var$wavedec(cols[x], "haar", level).flat();
         for(let y = 0; y < L; y++)result[y * L + x] = coeffs[y];
     }
     return result;
 }
-function $5d99fb4c94813a28$var$unflatten(data, level) {
+function $ee48ba1550c7f841$var$unflatten(data, level) {
     const result = [];
     const sizes = [];
     let n = data.length;
@@ -2659,7 +2655,7 @@ function $5d99fb4c94813a28$var$unflatten(data, level) {
     }
     return result;
 }
-function $5d99fb4c94813a28$var$waverec2(data, wavelet, level) {
+function $ee48ba1550c7f841$var$waverec2(data, wavelet, level) {
     const L = Math.round(Math.sqrt(data.length));
     const cols = new Array(L);
     for(let x = 0; x < L; x++){
@@ -2671,32 +2667,32 @@ function $5d99fb4c94813a28$var$waverec2(data, wavelet, level) {
     for(let i = 0; i < L; i++)rows[i] = new Array(L);
     // Cols
     for(let x = 0; x < L; x++){
-        const rec = $5d99fb4c94813a28$var$waverec($5d99fb4c94813a28$var$unflatten(cols[x], level), "haar");
+        const rec = $ee48ba1550c7f841$var$waverec($ee48ba1550c7f841$var$unflatten(cols[x], level), "haar");
         for(let y = 0; y < L; y++)rows[y][x] = rec[y];
     }
     const result = new Array(L * L);
     // Rows
     for(let y = 0; y < L; y++){
-        const rec = $5d99fb4c94813a28$var$waverec($5d99fb4c94813a28$var$unflatten(rows[y], level), "haar");
+        const rec = $ee48ba1550c7f841$var$waverec($ee48ba1550c7f841$var$unflatten(rows[y], level), "haar");
         for(let x = 0; x < L; x++)result[y * L + x] = rec[x];
     }
     return result;
 }
-async function $5d99fb4c94813a28$export$75b483db6f260202(image, size = 8, removeMaxHaarLL = true) {
+async function $ee48ba1550c7f841$export$75b483db6f260202(image, size = 8, removeMaxHaarLL = true) {
     const imageNaturalScale = 2 ** Math.floor(Math.log2(Math.min(image.naturalWidth, image.naturalHeight)));
     const imageSize = Math.max(imageNaturalScale, size);
     const llMaxLevel = Math.floor(Math.log2(imageSize));
     const level = Math.floor(Math.log2(size));
     const dwtLevel = llMaxLevel - level;
-    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImageAndGetData(image, imageSize, imageSize));
+    const pixels = (0, $9f577fbdef209026$export$a0eca36e8a395edb).convert(await (0, $9f577fbdef209026$export$b800e0a7c023911d).resizeImageAndGetData(image, imageSize, imageSize));
     let data = new Array(pixels.length);
     for(let i = 0; i < pixels.length; i++)data[i] = pixels[i] / 255;
     if (removeMaxHaarLL) {
-        const coeffs = $5d99fb4c94813a28$var$wavedec2(data, "haar", llMaxLevel);
+        const coeffs = $ee48ba1550c7f841$var$wavedec2(data, "haar", llMaxLevel);
         coeffs[0] = 0;
-        data = $5d99fb4c94813a28$var$waverec2(coeffs, "haar", llMaxLevel);
+        data = $ee48ba1550c7f841$var$waverec2(coeffs, "haar", llMaxLevel);
     }
-    const result = $5d99fb4c94813a28$var$wavedec2(data, "haar", dwtLevel);
+    const result = $ee48ba1550c7f841$var$wavedec2(data, "haar", dwtLevel);
     const ll = new Float64Array(size * size);
     const sorted = new Float64Array(size * size);
     let ptr = 0;
@@ -2711,15 +2707,15 @@ async function $5d99fb4c94813a28$export$75b483db6f260202(image, size = 8, remove
         ptr += imageSize - size;
     }
     const hash = new Uint8ClampedArray(size * size);
-    const med = $5d99fb4c94813a28$var$median(sorted);
+    const med = $ee48ba1550c7f841$var$median(sorted);
     for(let i = 0; i < hash.length; i++)hash[i] = ll[i] > med;
-    return new (0, $697e84c2185d0db8$export$8d4a4db4f3b072e1)(hash);
+    return new (0, $9e555d56f9e31450$export$8d4a4db4f3b072e1)(hash);
 }
 
 
 
 
-const $9d9ba2e8c9d3f75c$var$mulTable = [
+const $220f41c5433208e1$var$mulTable = [
     512,
     512,
     456,
@@ -2733,7 +2729,7 @@ const $9d9ba2e8c9d3f75c$var$mulTable = [
     271,
     456
 ];
-const $9d9ba2e8c9d3f75c$var$shgTable = [
+const $220f41c5433208e1$var$shgTable = [
     9,
     11,
     12,
@@ -2747,28 +2743,28 @@ const $9d9ba2e8c9d3f75c$var$shgTable = [
     15,
     16
 ];
-class $9d9ba2e8c9d3f75c$var$BlurStack {
+class $220f41c5433208e1$var$BlurStack {
     r = 0;
     next = null;
 }
-function $9d9ba2e8c9d3f75c$export$3763232abdebfe34(pixels, width, height, radius) {
+function $220f41c5433208e1$export$3763232abdebfe34(pixels, width, height, radius) {
     const div = 2 * radius + 1;
     const widthMinus1 = width - 1;
     const heightMinus1 = height - 1;
     const radiusPlus1 = radius + 1;
     const sumFactor = radiusPlus1 * (radiusPlus1 + 1) / 2;
-    const stackStart = new $9d9ba2e8c9d3f75c$var$BlurStack();
+    const stackStart = new $220f41c5433208e1$var$BlurStack();
     let stack = stackStart;
     let stackEnd;
     for(let i = 1; i < div; i++){
-        stack = stack.next = new $9d9ba2e8c9d3f75c$var$BlurStack();
+        stack = stack.next = new $220f41c5433208e1$var$BlurStack();
         if (i === radiusPlus1) stackEnd = stack;
     }
     stack.next = stackStart;
     let stackIn = null;
     let stackOut = null;
-    const mulSum = $9d9ba2e8c9d3f75c$var$mulTable[radius];
-    const shgSum = $9d9ba2e8c9d3f75c$var$shgTable[radius];
+    const mulSum = $220f41c5433208e1$var$mulTable[radius];
+    const shgSum = $220f41c5433208e1$var$shgTable[radius];
     let p;
     let rbs;
     let yw = 0;
@@ -2840,8 +2836,11 @@ function $9d9ba2e8c9d3f75c$export$3763232abdebfe34(pixels, width, height, radius
 
 
 
+var $0e67953c400e80ed$exports = {};
+"use strict";
 
-function $1e7ab61aa659f59a$var$debugSaveImage(pixels, filename, width, height) {
+
+function $cb098ea290d4828c$var$debugSaveImage(pixels, filename, width, height) {
     const rgba = new Uint8ClampedArray(width * height * 4);
     let cur = 0;
     for(let y = 0; y < height; y++)for(let x = 0; x < width; x++){
@@ -2851,15 +2850,15 @@ function $1e7ab61aa659f59a$var$debugSaveImage(pixels, filename, width, height) {
         rgba[cur++] = val;
         rgba[cur++] = 255;
     }
-    const canvas = (0, $60ae514bd74eb968$export$cd3d1f114b139967)(width, height);
+    const canvas = (0, $a81bfcfc0e69bec7$export$cd3d1f114b139967)(width, height);
     const ctx = canvas.getContext("2d");
-    const imgData = new (0, $60ae514bd74eb968$exports.ImageData)(rgba, width, height);
+    const imgData = new (0, $a81bfcfc0e69bec7$exports.ImageData)(rgba, width, height);
     ctx.putImageData(imgData, 0, 0);
-    const out = $4eXMr$createWriteStream(filename);
+    const out = $0e67953c400e80ed$exports.createWriteStream(filename);
     const stream = canvas.createPNGStream();
     stream.pipe(out);
 }
-function $1e7ab61aa659f59a$var$findRegion(thresholdPixels, alreadySegmented, size, hill) {
+function $cb098ea290d4828c$var$findRegion(thresholdPixels, alreadySegmented, size, hill) {
     const region = [];
     const newPixels = [];
     // Find the first pixel available
@@ -2899,7 +2898,7 @@ function $1e7ab61aa659f59a$var$findRegion(thresholdPixels, alreadySegmented, siz
     }
     return region;
 }
-function $1e7ab61aa659f59a$var$findAllSegments(pixels, segImgSize, segThreshold, minSegSize) {
+function $cb098ea290d4828c$var$findAllSegments(pixels, segImgSize, segThreshold, minSegSize) {
     let hillCount = 0;
     const thresholdPixels = new Uint8ClampedArray(pixels.length);
     for(let i = 0; i < pixels.length; i++){
@@ -2912,28 +2911,28 @@ function $1e7ab61aa659f59a$var$findAllSegments(pixels, segImgSize, segThreshold,
     // Find all the "hill" regions
     let segmentedCount = 0;
     while(segmentedCount < hillCount){
-        const segment = $1e7ab61aa659f59a$var$findRegion(thresholdPixels, alreadySegmented, segImgSize, 1);
+        const segment = $cb098ea290d4828c$var$findRegion(thresholdPixels, alreadySegmented, segImgSize, 1);
         if (segment.length > minSegSize) segments.push(segment);
         segmentedCount += segment.length;
     }
     // Find all the "valley" regions
     segmentedCount = 0;
     while(segmentedCount < valleyCount){
-        const segment = $1e7ab61aa659f59a$var$findRegion(thresholdPixels, alreadySegmented, segImgSize, 0);
+        const segment = $cb098ea290d4828c$var$findRegion(thresholdPixels, alreadySegmented, segImgSize, 0);
         if (segment.length > minSegSize) segments.push(segment);
         segmentedCount += segment.length;
     }
     return segments;
 }
-async function $1e7ab61aa659f59a$export$ac55b039577b3576(image, hashFunc, limitSegments, segmentThreshold = 128, minSegmentSize = 500, segmentationImageSize = 300) {
-    if (hashFunc === undefined) hashFunc = (0, $7951337d04d39bc5$export$a54d5a9c851b86d5);
+async function $cb098ea290d4828c$export$ac55b039577b3576(image, hashFunc, limitSegments, segmentThreshold = 128, minSegmentSize = 500, segmentationImageSize = 300) {
+    if (hashFunc === undefined) hashFunc = (0, $6fbfb80da9fa69d2$export$a54d5a9c851b86d5);
     const imageWidth = image.naturalWidth || image.width;
     const imageHeight = image.naturalHeight || image.height;
     segmentationImageSize = Math.min(imageWidth, imageHeight, segmentationImageSize);
-    const imageCanvas = (0, $d63ce871ef98b138$export$b800e0a7c023911d).getImageCanvas(image);
-    const pixels = (0, $d63ce871ef98b138$export$a0eca36e8a395edb).convert(await (0, $d63ce871ef98b138$export$b800e0a7c023911d).resizeImageAndGetData(imageCanvas, segmentationImageSize, segmentationImageSize));
-    (0, $9d9ba2e8c9d3f75c$export$3763232abdebfe34)(pixels, segmentationImageSize, segmentationImageSize, 4);
-    const segments = $1e7ab61aa659f59a$var$findAllSegments(pixels, segmentationImageSize, segmentThreshold, minSegmentSize);
+    const imageCanvas = (0, $9f577fbdef209026$export$b800e0a7c023911d).getImageCanvas(image);
+    const pixels = (0, $9f577fbdef209026$export$a0eca36e8a395edb).convert(await (0, $9f577fbdef209026$export$b800e0a7c023911d).resizeImageAndGetData(imageCanvas, segmentationImageSize, segmentationImageSize));
+    (0, $220f41c5433208e1$export$3763232abdebfe34)(pixels, segmentationImageSize, segmentationImageSize, 4);
+    const segments = $cb098ea290d4828c$var$findAllSegments(pixels, segmentationImageSize, segmentThreshold, minSegmentSize);
     if (limitSegments) segments.sort((a, b)=>b.length - a.length).splice(limitSegments);
     const scaleW = imageWidth / segmentationImageSize;
     const scaleH = imageHeight / segmentationImageSize;
@@ -2945,31 +2944,22 @@ async function $1e7ab61aa659f59a$export$ac55b039577b3576(image, hashFunc, limitS
         const sy = Math.min(...y);
         const sw = Math.max(...x) + 1 - sx;
         const sh = Math.max(...y) + 1 - sy;
-        const cropCanvas = (0, $d63ce871ef98b138$export$b800e0a7c023911d).getImageCanvas((0, $d63ce871ef98b138$export$b800e0a7c023911d).getImageCanvas(image), sx * scaleW, sy * scaleH, sw * scaleW, sh * scaleH);
+        const cropCanvas = (0, $9f577fbdef209026$export$b800e0a7c023911d).getImageCanvas((0, $9f577fbdef209026$export$b800e0a7c023911d).getImageCanvas(image), sx * scaleW, sy * scaleH, sw * scaleW, sh * scaleH);
         hashPromises.push(hashFunc(cropCanvas));
     }
     const hashes = await Promise.all(hashPromises);
-    return new (0, $697e84c2185d0db8$export$88a288ed7909ebd3)(hashes);
+    return new (0, $9e555d56f9e31450$export$88a288ed7909ebd3)(hashes);
 }
 
 
-$6c221ac32ca8caf2$exports = [
-    (0, $428930f2f5ca011a$export$3ff5a4f04de7e52e),
-    (0, $7951337d04d39bc5$export$a54d5a9c851b86d5),
-    (0, $1b5a4819c0d3ca60$export$1b9f82d63d7325c),
-    (0, $5d99fb4c94813a28$export$75b483db6f260202),
-    (0, $1e7ab61aa659f59a$export$ac55b039577b3576),
-    (0, $697e84c2185d0db8$export$8d4a4db4f3b072e1)
-];
 if (typeof window !== "undefined") {
-    window.ahash = (0, $428930f2f5ca011a$export$3ff5a4f04de7e52e);
-    window.dhash = (0, $7951337d04d39bc5$export$a54d5a9c851b86d5);
-    window.phash = (0, $1b5a4819c0d3ca60$export$1b9f82d63d7325c);
-    window.whash = (0, $5d99fb4c94813a28$export$75b483db6f260202);
-    window.cropResistantHash = (0, $1e7ab61aa659f59a$export$ac55b039577b3576);
-    window.ImageHash = (0, $697e84c2185d0db8$export$8d4a4db4f3b072e1);
+    window.ahash = (0, $1708ac639f8fa788$export$3ff5a4f04de7e52e);
+    window.dhash = (0, $6fbfb80da9fa69d2$export$a54d5a9c851b86d5);
+    window.phash = (0, $304f6ee132cc55e8$export$1b9f82d63d7325c);
+    window.whash = (0, $ee48ba1550c7f841$export$75b483db6f260202);
+    window.cropResistantHash = (0, $cb098ea290d4828c$export$ac55b039577b3576);
+    window.ImageHash = (0, $9e555d56f9e31450$export$8d4a4db4f3b072e1);
 }
 
 
-export {$6c221ac32ca8caf2$exports as default};
 //# sourceMappingURL=imagehash-web.js.map
