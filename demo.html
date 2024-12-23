@@ -1,0 +1,20 @@
+<html>
+
+    <body>
+        <script src="./dist/imagehash-web.js"></script>
+        <script>
+            let count = 0;
+            function calcHash() {
+                const im = document.getElementById("my-image");
+                const precomputed = ImageHash.fromHexString("5dbfb5310a81a361")
+
+                phash(im, 8).then(hash => {
+                    console.log('Hash is: ' + hash.toHexString());
+                    console.log(hash.hammingDistance(precomputed));
+                
+                });
+            }
+                </script>
+            <img src="./test_fixtures/100px.jpg" crossorigin="anonymous" onload="calcHash()" id="my-image">
+    </body>
+</html>
